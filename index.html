@@ -122,6 +122,18 @@
     -webkit-backdrop-filter: blur(14px);
   }
 
+  /* El nav del footer NO debe ser fixed */
+  .footer-links {
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    z-index: auto !important;
+    background: none !important;
+    backdrop-filter: none !important;
+    padding: 0 !important;
+  }
+
   .nav-name {
     font-family: var(--mono);
     font-size: 0.65rem;
@@ -968,13 +980,16 @@
     border-top: 1px solid rgba(12,12,12,0.12);
     padding: 2.5rem 4rem;
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 1.2rem;
+    flex-wrap: nowrap;
+    gap: 2rem;
     background-color: var(--bg);
     position: relative;
     z-index: 10;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .footer-left {
@@ -983,6 +998,8 @@
     letter-spacing: 0.1em;
     opacity: 0.6;
     color: var(--ink);
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 
   .footer-links {
@@ -990,6 +1007,7 @@
     align-items: center;
     gap: 1.5rem;
     flex-wrap: wrap;
+    justify-content: flex-end;
   }
 
   .footer-links a {
@@ -1001,6 +1019,7 @@
     text-decoration: none;
     opacity: 0.65;
     transition: opacity 0.2s;
+    white-space: nowrap;
   }
   .footer-links a:hover { opacity: 1; }
 
@@ -1008,6 +1027,7 @@
     width: 1px;
     height: 0.7rem;
     background: rgba(12,12,12,0.25);
+    flex-shrink: 0;
   }
 
   /* ── RESPONSIVE NUEVAS SECCIONES ── */
@@ -1164,15 +1184,11 @@
 <footer class="footer-legal">
   <span class="footer-left">© 2026 Nico Gatica Studio</span>
   <nav class="footer-links" aria-label="Legal">
-    <a href="#contact" data-i18n="footer-hello">Say hello</a>
+    <a href="terms.html" data-i18n="footer-terms">Términos y condiciones</a>
     <div class="footer-sep"></div>
-    <a href="terms.html" data-i18n="footer-terms">Terms</a>
+    <a href="privacy.html" data-i18n="footer-privacy">Privacidad</a>
     <div class="footer-sep"></div>
-    <a href="privacy.html" data-i18n="footer-privacy">Privacy</a>
-    <div class="footer-sep"></div>
-    <a href="returns.html" data-i18n="footer-returns">Returns</a>
-    <div class="footer-sep"></div>
-    <a href="https://www.instagram.com/n_gatica_/" target="_blank" rel="noopener">Instagram</a>
+    <a href="returns.html" data-i18n="footer-returns">Envíos y devoluciones</a>
   </nav>
 </footer>
 
@@ -1244,8 +1260,7 @@ const translations = {
     'cf-message':      'Mensaje',
     'cf-submit':       'Enviar',
     'cf-ok':           '¡Mensaje enviado! Te respondo pronto.',
-    'footer-hello':    'Say hello',
-    'footer-terms':    'Términos',
+    'footer-terms':    'Términos y condiciones',
     'footer-privacy':  'Privacidad',
     'footer-returns':  'Envíos y devoluciones',
   },
@@ -1287,8 +1302,7 @@ const translations = {
     'cf-message':      'Message',
     'cf-submit':       'Send',
     'cf-ok':           "Message sent! I'll get back to you soon.",
-    'footer-hello':    'Say hello',
-    'footer-terms':    'Terms',
+    'footer-terms':    'Terms & conditions',
     'footer-privacy':  'Privacy',
     'footer-returns':  'Shipping & returns',
   }
