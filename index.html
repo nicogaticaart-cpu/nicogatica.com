@@ -983,7 +983,7 @@
 
   /* ── FOOTER LEGAL ── */
   .footer-legal {
-    border-top: 1px solid rgba(12,12,12,0.05);
+    border-top: 1px solid rgba(12,12,12,0.12);
     padding: 2.5rem 4rem;
     display: flex;
     justify-content: space-between;
@@ -992,7 +992,7 @@
     gap: 1.2rem;
     background-color: var(--bg);
     position: relative;
-    z-index: 1;
+    z-index: 10;
   }
 
   .footer-left {
@@ -1198,10 +1198,11 @@
 <div class="nl-popup-overlay" id="nl-popup-overlay">
   <div class="nl-popup" role="dialog" aria-modal="true" aria-label="Newsletter">
     <button class="nl-popup-close" id="nl-popup-close" data-i18n="nl-popup-close">Cerrar ×</button>
-    <p class="nl-popup-label">Newsletter</p>
     <h2 class="nl-popup-title" data-i18n="nl-heading">Suscríbete a mi<br><em>newsletter</em></h2>
     <p class="nl-popup-sub" data-i18n="nl-sub">Nuevas obras, procesos y lanzamientos. Sin ruido.</p>
     <form class="nl-popup-form" id="nl-popup-form" onsubmit="handleNewsletterPopup(event)">
+      <input class="nl-popup-input" type="text" id="nl-popup-name" name="name" required
+        data-i18n-placeholder="nl-name-placeholder" placeholder="Tu nombre">
       <input class="nl-popup-input" type="email" id="nl-popup-email" name="email" required
         data-i18n-placeholder="nl-placeholder" placeholder="tu@email.com">
       <button class="nl-popup-btn" type="submit" data-i18n="nl-btn">Suscribirme</button>
@@ -1249,6 +1250,7 @@ const translations = {
     'close':           'Cerrar',
     'nl-heading':      'Suscríbete a mi<br><em>newsletter</em>',
     'nl-sub':          'Nuevas obras, procesos y lanzamientos. Sin ruido.',
+    'nl-name-placeholder': 'Tu nombre',
     'nl-placeholder':  'tu@email.com',
     'nl-btn':          'Suscribirme',
     'nl-ok':           '¡Listo, te has suscrito!',
@@ -1291,6 +1293,7 @@ const translations = {
     'close':           'Close',
     'nl-heading':      'Subscribe to my<br><em>newsletter</em>',
     'nl-sub':          'New works, process and releases. No noise.',
+    'nl-name-placeholder': 'Your name',
     'nl-placeholder':  'your@email.com',
     'nl-btn':          'Subscribe',
     'nl-ok':           "You're in!",
@@ -1520,6 +1523,9 @@ async function handleContactForm(e) {
   const overlay = document.getElementById('nl-popup-overlay');
   const closeBtn = document.getElementById('nl-popup-close');
 
+  // Al cargar, fuerza scroll al top (evita que el navegador recuerde posición anterior)
+  window.scrollTo(0, 0);
+
   // Aparece siempre, 2 segundos después de cargar
   setTimeout(function() {
     overlay.classList.add('visible');
@@ -1544,10 +1550,11 @@ async function handleContactForm(e) {
 function handleNewsletterPopup(e) {
   e.preventDefault();
   const email = document.getElementById('nl-popup-email').value;
+  const name  = document.getElementById('nl-popup-name').value;
   const ok = document.getElementById('nl-popup-ok');
   ok.style.display = 'none';
   if (typeof sender !== 'undefined') {
-    sender('subscribe', { email: email }, function(res) {
+    sender('subscribe', { email: email, firstname: name }, function(res) {
       if (res && (res.status === 'success' || res.subscribed)) {
         ok.style.display = 'block';
         e.target.reset();
