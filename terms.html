@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Términos y condiciones — Nico Gatica</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=DM+Mono:wght@300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #F7F7F6; --ink: #0C0C0C; --accent: #3730A3;
+    --sans: 'Inter', sans-serif; --mono: 'DM Mono', monospace;
+  }
+  html { background: var(--bg); }
+  body { background: var(--bg); color: var(--ink); font-family: var(--sans); font-weight: 300; }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.8rem 4rem;
+    background: rgba(247,247,246,0.93);
+    backdrop-filter: blur(14px);
+  }
+  .nav-name {
+    font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--ink); text-decoration: none; opacity: 0.55;
+  }
+  .nav-back {
+    font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--ink); text-decoration: none; opacity: 0.3;
+    transition: opacity 0.2s;
+  }
+  .nav-back:hover { opacity: 1; }
+
+  .lang-switcher {
+    display: flex; align-items: center;
+    border: 1px solid rgba(12,12,12,0.12); border-radius: 2px; overflow: hidden;
+  }
+  .lang-btn {
+    font-family: var(--mono); font-size: 0.56rem; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--ink); background: none; border: none;
+    padding: 0.28rem 0.52rem; cursor: pointer; opacity: 0.3; transition: opacity 0.2s, background 0.2s;
+  }
+  .lang-btn.active { opacity: 1; background: var(--accent); color: #F7F7F6; }
+
+  main {
+    max-width: 740px; margin: 0 auto;
+    padding: 10rem 4rem 8rem;
+  }
+
+  .legal-eyebrow {
+    font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.2em;
+    text-transform: uppercase; opacity: 0.22; color: var(--ink); margin-bottom: 2rem;
+  }
+  .legal-title {
+    font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 300;
+    letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 0.8rem;
+  }
+  .legal-updated {
+    font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.08em;
+    opacity: 0.3; margin-bottom: 4rem;
+  }
+  .legal-note {
+    font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.06em;
+    opacity: 0.4; border-left: 2px solid var(--accent); padding-left: 1rem;
+    margin-bottom: 3rem; line-height: 1.8;
+  }
+  h2 {
+    font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.16em;
+    text-transform: uppercase; opacity: 0.35; margin: 3rem 0 1rem;
+  }
+  p { font-size: 0.88rem; line-height: 1.9; opacity: 0.6; margin-bottom: 1rem; }
+  ul, ol { padding-left: 1.4rem; margin-bottom: 1rem; }
+  li { font-size: 0.88rem; line-height: 1.9; opacity: 0.6; margin-bottom: 0.3rem; }
+  a { color: var(--accent); }
+
+  footer {
+    border-top: 1px solid rgba(12,12,12,0.05);
+    padding: 2rem 4rem;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+  }
+  footer span { font-family: var(--mono); font-size: 0.54rem; letter-spacing: 0.1em; opacity: 0.17; }
+  footer a { font-family: var(--mono); font-size: 0.54rem; letter-spacing: 0.1em; opacity: 0.25; color: var(--ink); text-decoration: none; }
+  footer a:hover { opacity: 0.7; }
+  .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+
+  [lang-content] { display: none; }
+  [lang-content].active { display: block; }
+
+  @media (max-width: 860px) {
+    nav { padding: 1.2rem 1.5rem; }
+    main { padding: 7rem 1.5rem 5rem; }
+    footer { padding: 2rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-name">Nico Gatica</a>
+  <div style="display:flex;align-items:center;gap:1.5rem;">
+    <a href="index.html" class="nav-back">← Volver</a>
+    <div class="lang-switcher">
+      <button class="lang-btn active" onclick="setLang('es')">ES</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ES -->
+  <div lang-content="es" class="active">
+    <p class="legal-eyebrow">Legal</p>
+    <h1 class="legal-title">Términos y condiciones</h1>
+    <p class="legal-updated">Última actualización: noviembre 2026</p>
+
+    <h2>Información general del titular</h2>
+    <p>El titular de este sitio web es Nico Gatica, que opera bajo el nombre comercial Nico Gatica Studio. Contacto: <a href="mailto:hello@nicogatica.com">hello@nicogatica.com</a></p>
+
+    <h2>Introducción</h2>
+    <p>Este sitio web es operado por Nico Gatica Studio. Al visitar nuestro sitio y/o comprarnos algo, aceptas quedar vinculado por los siguientes Términos y Condiciones, incluidas las políticas adicionales a las que se hace referencia. Estos Términos se aplican a todos los usuarios del sitio.</p>
+    <p>Lee atentamente estos Términos antes de acceder o utilizar nuestro sitio web. Si no estás de acuerdo con ellos, no debes acceder al sitio ni utilizar el Servicio.</p>
+
+    <h2>Sección 1 — Condiciones de la tienda online</h2>
+    <p>Al aceptar estos Términos, declaras que eres mayor de 18 años. No puedes utilizar nuestros productos para ningún fin ilegal ni infringir ninguna ley aplicable. El incumplimiento de cualquiera de estos Términos podrá dar lugar a la suspensión o cancelación de tu acceso al Servicio.</p>
+
+    <h2>Sección 2 — Condiciones generales</h2>
+    <p>Nos reservamos el derecho de no prestar el Servicio cuando existan motivos justificados, respetando siempre la normativa aplicable en materia de no discriminación. Te comprometes a no reproducir, duplicar, copiar, vender ni explotar ninguna parte del Servicio sin nuestro permiso expreso por escrito.</p>
+
+    <h2>Sección 3 — Propiedad intelectual</h2>
+    <p>Todas las obras, imágenes, textos y diseños de este sitio son propiedad de Nico Gatica y están protegidos por la Ley de Propiedad Intelectual (RDL 1/1996). La compra de una obra original transmite la propiedad del objeto físico, pero no los derechos de reproducción, distribución ni comunicación pública. Queda prohibida la reproducción comercial sin autorización previa.</p>
+
+    <h2>Sección 4 — Exactitud de la información</h2>
+    <p>Procuramos que la información publicada sea exacta y esté actualizada, pero no podemos garantizar que esté libre de errores en todo momento. Nos reservamos el derecho de modificar el contenido del sitio en cualquier momento.</p>
+
+    <h2>Sección 5 — Modificaciones del servicio y precios</h2>
+    <p>Los precios pueden cambiar sin previo aviso. El precio aplicable será el indicado en el momento del pedido. Todos los precios se muestran en euros (€). Nos reservamos el derecho de modificar o interrumpir el Servicio en cualquier momento, sin que ello afecte a pedidos ya confirmados.</p>
+
+    <h2>Sección 6 — Productos y servicios</h2>
+    <p>Las obras originales son piezas únicas y su disponibilidad es limitada. Las devoluciones se rigen por nuestra <a href="returns.html">Política de envíos y devoluciones</a>. Hemos hecho todo lo posible para mostrar con precisión los colores; no obstante, no podemos garantizar la exactitud de la pantalla de tu dispositivo. Al tratarse de obras hechas a mano, pueden existir pequeñas variaciones que forman parte del carácter de cada pieza.</p>
+
+    <h2>Sección 7 — Proceso de compra, pago y envío</h2>
+    <p>El contrato de compraventa se perfecciona cuando recibes el correo electrónico de confirmación del pedido. Los pagos se procesan mediante pasarelas de pago seguras con cifrado SSL; no almacenamos los datos completos de tu tarjeta.</p>
+    <p>Las obras originales son piezas únicas. Si la obra no estuviera disponible, te lo comunicaremos de inmediato y te reembolsaremos el importe pagado en un plazo máximo de 14 días. Si necesitas factura, solicítala a <a href="mailto:hello@nicogatica.com">hello@nicogatica.com</a>.</p>
+
+    <h2>Sección 8 — Exactitud de la facturación</h2>
+    <p>Nos reservamos el derecho de rechazar o cancelar un pedido cuando existan motivos justificados (falta de disponibilidad, error en el precio o sospecha de fraude). En tal caso, te notificaremos y te reembolsaremos íntegramente cualquier importe abonado.</p>
+
+    <h2>Sección 9 — Propiedad intelectual</h2>
+    <p>Podemos darte acceso a herramientas de terceros que no supervisamos ni controlamos. Dichas herramientas se ofrecen "tal cual" y su uso es bajo tu propia responsabilidad.</p>
+
+    <h2>Sección 10 — Usos prohibidos</h2>
+    <p>Queda prohibido utilizar el sitio con fines ilícitos, para infringir derechos de propiedad intelectual, acosar o discriminar a otras personas, transmitir código malicioso, o para cualquier otro fin contrario a la legislación aplicable.</p>
+
+    <h2>Sección 11 — Garantías y limitación de responsabilidad</h2>
+    <p>Los productos vendidos a consumidores cuentan con la garantía legal de conformidad prevista en el TRLGDCU: respondemos de cualquier falta de conformidad que se manifieste en un plazo de tres (3) años desde la entrega. Nada en estos Términos limita los derechos reconocidos por la ley a los consumidores.</p>
+
+    <h2>Sección 12 — Derechos de los consumidores</h2>
+    <p>Dispones de 14 días naturales desde la recepción para desistir de la compra sin necesidad de justificación. Para ejercerlo, escríbenos a <a href="mailto:hello@nicogatica.com">hello@nicogatica.com</a>. Los detalles completos se recogen en nuestra <a href="returns.html">Política de devoluciones</a>.</p>
+    <p>Las obras realizadas por encargo conforme a tus especificaciones están excluidas del derecho de desistimiento (art. 103.c TRLGDCU).</p>
+
+    <h2>Sección 13 — Legislación aplicable y jurisdicción</h2>
+    <p>Estos Términos se rigen por la legislación española. Para cualquier controversia, si eres consumidor, serán competentes los juzgados y tribunales de tu domicilio.</p>
+
+    <h2>Sección 14 — Cambios en los términos</h2>
+    <p>Nos reservamos el derecho de actualizar estos Términos publicando los cambios en este sitio web. Los cambios no afectarán a los pedidos realizados con anterioridad a su publicación.</p>
+
+    <h2>Contacto</h2>
+    <p><a href="mailto:hello@nicogatica.com">hello@nicogatica.com</a></p>
+  </div>
+
+  <!-- EN -->
+  <div lang-content="en">
+    <p class="legal-note">This English version is provided for convenience. In the event of any discrepancy, the Spanish version shall prevail.</p>
+    <p class="legal-eyebrow">Legal</p>
+    <h1 class="legal-title">Terms and conditions</h1>
+    <p class="legal-updated">Last updated: November 2026</p>
+
+    <h2>Owner information</h2>
+    <p>The owner of this website is Nico Gatica, trading as Nico Gatica Studio. Contact: <a href="mailto:hello@nicogatica.com">hello@nicogatica.com</a></p>
+
+    <h2>Introduction</h2>
+    <p>This website is operated by Nico Gatica Studio. By visiting our site and/or purchasing something from us, you agree to be bound by the following Terms and Conditions. These Terms apply to all users of the site.</p>
+    <p>Please read these Terms carefully before accessing or using our website. If you do not agree, you should not access the site or use the Service.</p>
+
+    <h2>Section 1 — Online store terms</h2>
+    <p>By agreeing to these Terms, you represent that you are 18 years of age or older. You may not use our products for any illegal purpose or in violation of any applicable law. A breach of any of these Terms may result in suspension or termination of your access to the Service.</p>
+
+    <h2>Section 2 — General conditions</h2>
+    <p>We reserve the right to refuse service where there are justified grounds, in accordance with applicable non-discrimination law. You agree not to reproduce, duplicate, copy, sell or exploit any portion of the Service without our express written permission.</p>
+
+    <h2>Section 3 — Intellectual property</h2>
+    <p>All artworks, images, texts and designs on this site are owned by Nico Gatica and are protected by Spanish Intellectual Property Law (Royal Legislative Decree 1/1996). The purchase of an original artwork transfers ownership of the physical object, but not intellectual property rights. Reproduction of artworks for commercial purposes without prior authorisation is prohibited.</p>
+
+    <h2>Section 4 — Accuracy of information</h2>
+    <p>We strive to ensure that the information published on this site is accurate and up to date, but we cannot guarantee it will be error-free at all times. We reserve the right to modify the contents of the site at any time.</p>
+
+    <h2>Section 5 — Modifications to the service and prices</h2>
+    <p>Prices are subject to change without notice. The applicable price will always be the one shown at the time the order is placed. All prices are shown in euros (€). We reserve the right to modify or discontinue the Service at any time, without affecting orders already confirmed.</p>
+
+    <h2>Section 6 — Products and services</h2>
+    <p>Original artworks are unique pieces and are therefore available in limited quantities. Returns are governed by our <a href="returns.html">Shipping &amp; Returns Policy</a>. We have made every effort to display colours accurately; however, we cannot guarantee your device's screen will display colours with full accuracy. As artworks are handmade, slight variations are part of each piece's character and are not defects.</p>
+
+    <h2>Section 7 — Ordering, payment and shipping</h2>
+    <p>The sales contract is concluded when you receive the order confirmation email. Payments are processed through secure payment gateways with SSL encryption; we do not store your full card details.</p>
+    <p>Original artworks are unique pieces. If an artwork is no longer available after your order is placed, we will inform you immediately and refund the amount paid within a maximum of 14 calendar days. If you need an invoice, please request it at <a href="mailto:hello@nicogatica.com">hello@nicogatica.com</a>.</p>
+
+    <h2>Section 8 — Accuracy of billing</h2>
+    <p>We reserve the right to refuse or cancel an order where there are justified grounds (unavailability, obvious pricing error or suspected fraud). In such cases, we will notify you and refund any amount paid in full.</p>
+
+    <h2>Section 9 — Optional tools</h2>
+    <p>We may provide access to third-party tools we do not monitor or control. Such tools are provided "as is" and their use is at your own risk.</p>
+
+    <h2>Section 10 — Prohibited uses</h2>
+    <p>You are prohibited from using the site for any unlawful purpose, to infringe intellectual property rights, to harass or discriminate against others, to transmit malicious code, or for any other purpose contrary to applicable law.</p>
+
+    <h2>Section 11 — Warranties and limitation of liability</h2>
+    <p>Products sold to consumers are covered by the legal guarantee of conformity under Spanish consumer law: we are liable for any lack of conformity that becomes apparent within three (3) years of delivery. Nothing in these Terms limits any right granted to consumers by law.</p>
+
+    <h2>Section 12 — Consumer rights</h2>
+    <p>You have 14 calendar days from receipt of the artwork to withdraw from the purchase without giving any reason. To exercise this right, email us at <a href="mailto:hello@nicogatica.com">hello@nicogatica.com</a>. Full details are set out in our <a href="returns.html">Returns Policy</a>.</p>
+    <p>Artworks made to your specifications are exempt from the right of withdrawal (Art. 103(c) TRLGDCU).</p>
+
+    <h2>Section 13 — Governing law and jurisdiction</h2>
+    <p>These Terms are governed by Spanish law. If you are a consumer, the courts of your place of residence shall have jurisdiction over any dispute.</p>
+
+    <h2>Section 14 — Changes to these terms</h2>
+    <p>We reserve the right to update these Terms by posting the changes on this website. Changes will not affect orders placed before they are published.</p>
+
+    <h2>Contact</h2>
+    <p><a href="mailto:hello@nicogatica.com">hello@nicogatica.com</a></p>
+  </div>
+
+</main>
+
+<footer>
+  <span>© 2026 Nico Gatica Studio</span>
+  <div class="footer-links">
+    <a href="index.html">← Inicio</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="returns.html">Returns</a>
+    <a href="https://www.instagram.com/n_gatica_/" target="_blank" rel="noopener">Instagram</a>
+  </div>
+</footer>
+
+<script>
+function setLang(lang) {
+  document.querySelectorAll('[lang-content]').forEach(el => {
+    el.classList.toggle('active', el.getAttribute('lang-content') === lang);
+  });
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent.toLowerCase() === lang);
+  });
+  document.documentElement.lang = lang;
+  document.querySelector('.nav-back').textContent = lang === 'es' ? '← Volver' : '← Back';
+}
+</script>
+</body>
+</html>

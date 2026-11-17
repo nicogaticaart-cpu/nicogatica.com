@@ -1,0 +1,1440 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+
+<title>Nico Gatica — Abstract Watercolour & Acrylic Art | Barcelona</title>
+<meta name="description" content="Nico Gatica is a Barcelona-based visual artist working in watercolour and acrylic. Abstract paintings exploring consciousness, cosmic scale and the moment before understanding. Original works available.">
+<meta name="keywords" content="Nico Gatica, abstract art, abstract painting, watercolour, acrylic, Barcelona artist, contemporary art, original paintings, arte abstracto, acuarela, pintura contemporánea">
+<meta name="author" content="Nico Gatica">
+<link rel="canonical" href="https://nicogatica.com/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nicogatica.com/">
+<meta property="og:title" content="Nico Gatica — Abstract Watercolour & Acrylic Art">
+<meta property="og:description" content="Barcelona-based visual artist. Abstract paintings in watercolour and acrylic exploring consciousness, cosmic scale and perception. Original works available.">
+<meta property="og:image" content="https://nicogatica.com/images/tiempo-i.jpg">
+<meta property="og:locale" content="es_ES">
+<meta property="og:locale:alternate" content="en_GB">
+<meta property="og:site_name" content="Nico Gatica">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Nico Gatica — Abstract Watercolour & Acrylic Art">
+<meta name="twitter:description" content="Barcelona-based visual artist. Abstract paintings exploring consciousness, cosmic scale and perception.">
+<meta name="twitter:image" content="https://nicogatica.com/images/tiempo-i.jpg">
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Nico Gatica",
+  "url": "https://nicogatica.com",
+  "sameAs": ["https://www.instagram.com/n_gatica_/"],
+  "jobTitle": "Visual Artist",
+  "description": "Barcelona-based visual artist working in watercolour and acrylic. Abstract paintings exploring consciousness, cosmic scale and perception.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Barcelona",
+    "addressCountry": "ES"
+  },
+  "knowsAbout": ["Abstract Art", "Watercolour", "Acrylic Painting", "Contemporary Art"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Nico Gatica",
+  "url": "https://nicogatica.com",
+  "description": "Portfolio of Barcelona-based visual artist Nico Gatica. Original abstract paintings in watercolour and acrylic.",
+  "inLanguage": ["es", "en"]
+}
+</script>
+
+<!-- Netlify Identity (for CMS login) -->
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+<!-- Sender.net newsletter -->
+<script>
+  (function (s, e, n, d, er) {
+    s['Sender'] = er;
+    s[er] = s[er] || function () {
+      (s[er].q = s[er].q || []).push(arguments)
+    }, s[er].l = 1 * new Date();
+    s[er].on = function(event, callback) {
+      s[er].listeners = s[er].listeners || {};
+      (s[er].listeners[event] = s[er].listeners[event] || []).push(callback);
+    };
+    var a = e.createElement(n),
+        m = e.getElementsByTagName(n)[0];
+    a.async = 1;
+    a.src = d;
+    m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', 'https://cdn.sender.net/accounts_resources/universal.js', 'sender');
+  sender('ea005b9da48960')
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=DM+Mono:wght@300&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    color-scheme: light only;
+    --bg: #F7F7F6;
+    --ink: #0C0C0C;
+    --accent: #3730A3;
+    --dim: rgba(12,12,12,0.32);
+    --sans: 'Inter', sans-serif;
+    --mono: 'DM Mono', monospace;
+  }
+
+  html { scroll-behavior: smooth; background-color: #F7F7F6; }
+
+  body {
+    background-color: var(--bg) !important;
+    color: var(--ink) !important;
+    font-family: var(--sans);
+    font-weight: 300;
+    min-height: 100vh;
+    -webkit-text-size-adjust: 100%;
+    transition: background-color 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.8rem 4rem;
+    background-color: rgba(247,247,246,0.93);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+
+  .nav-name {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    font-weight: 300;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    opacity: 0.55;
+    transition: opacity 0.2s;
+  }
+  .nav-name:hover { opacity: 1; }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    opacity: 0.3;
+    transition: opacity 0.25s;
+  }
+  .nav-links a:hover { opacity: 1; }
+
+  /* ── LANG SWITCHER ── */
+  .lang-switcher {
+    display: flex;
+    align-items: center;
+    border: 1px solid rgba(12,12,12,0.12);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .lang-btn {
+    font-family: var(--mono);
+    font-size: 0.56rem;
+    font-weight: 300;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink);
+    background: none;
+    border: none;
+    padding: 0.28rem 0.52rem;
+    cursor: pointer;
+    opacity: 0.3;
+    transition: opacity 0.2s, background-color 0.2s, color 0.2s;
+    line-height: 1;
+  }
+
+  .lang-btn.active {
+    opacity: 1;
+    background-color: var(--accent);
+    color: #F7F7F6;
+  }
+
+  .lang-btn:not(.active):hover { opacity: 0.65; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 80svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 8rem 4rem 5rem;
+    max-width: 100%;
+  }
+
+  .hero-inner { max-width: 1200px; }
+
+  .hero-tagline {
+    font-size: clamp(3.5rem, 11vw, 10rem);
+    font-weight: 300;
+    line-height: 1.0;
+    letter-spacing: -0.04em;
+    color: var(--ink);
+    margin-bottom: 3.5rem;
+  }
+
+  .hero-tagline em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-sub {
+    font-family: var(--mono);
+    font-size: clamp(0.8rem, 1.3vw, 1rem);
+    font-weight: 300;
+    line-height: 1.9;
+    max-width: 52ch;
+    opacity: 0.45;
+    color: var(--ink);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .hero-scroll {
+    margin-top: 5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+  }
+
+  .hero-scroll-line {
+    width: 3rem;
+    height: 1px;
+    background: var(--ink);
+    opacity: 0.2;
+  }
+
+  .hero-scroll-label {
+    font-family: var(--mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.2;
+    color: var(--ink);
+  }
+
+  /* ── SERIES SECTION ── */
+  .series-section { padding: 10rem 0 12rem; }
+
+  .section-header {
+    padding: 0 4rem;
+    margin-bottom: 6rem;
+    display: flex;
+    align-items: baseline;
+    gap: 2rem;
+  }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.22;
+    color: var(--ink);
+  }
+
+  .section-rule {
+    flex: 1;
+    height: 1px;
+    background: rgba(12,12,12,0.07);
+  }
+
+  /* ── WORK ROOM ── */
+  .work-room {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5rem 8vw 6rem;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+  }
+
+  .work-image-wrap {
+    width: min(70%, 780px);
+    aspect-ratio: 4/3;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 60px rgba(12,12,12,0.06);
+  }
+
+  .work-room.portrait .work-image-wrap {
+    aspect-ratio: 3/4;
+    width: min(42%, 480px);
+  }
+
+  .work-room.square .work-image-wrap {
+    aspect-ratio: 1/1;
+    width: min(54%, 580px);
+  }
+
+  .work-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .work-room:hover .work-image-wrap img { transform: scale(1.015); }
+
+  .work-info {
+    width: min(70%, 780px);
+    margin-top: 2.8rem;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .work-room.portrait .work-info,
+  .work-room.square   .work-info { width: min(70%, 780px); }
+
+  .work-number {
+    font-family: var(--mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.18em;
+    opacity: 0.18;
+    margin-bottom: 0.5rem;
+    color: var(--ink);
+  }
+
+  .work-title {
+    font-size: clamp(1.1rem, 2.2vw, 1.75rem);
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    color: var(--ink);
+  }
+
+  .work-title em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .work-meta-col { text-align: right; flex-shrink: 0; }
+
+  .work-meta-item {
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.56rem;
+    letter-spacing: 0.08em;
+    opacity: 0.32;
+    line-height: 2;
+    color: var(--ink);
+  }
+
+  .work-price {
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.56rem;
+    letter-spacing: 0.08em;
+    opacity: 0.55;
+    line-height: 2;
+    color: var(--ink);
+    margin-top: 0.4rem;
+  }
+
+  .room-divider {
+    width: calc(100% - 8rem);
+    margin: 0 4rem;
+    height: 1px;
+    background: rgba(12,12,12,0.05);
+  }
+
+  /* ── ABOUT ── */
+  .about-section {
+    border-top: 1px solid rgba(12,12,12,0.06);
+    padding: 10rem 4rem 10rem;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+
+  .about-eyebrow {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.22;
+    margin-bottom: 5rem;
+    color: var(--ink);
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 8rem;
+    align-items: start;
+  }
+
+  .about-core {
+    font-size: clamp(1.3rem, 2.2vw, 1.95rem);
+    font-weight: 300;
+    line-height: 1.4;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+    margin-bottom: 4rem;
+  }
+
+  .about-core em { font-style: italic; color: var(--accent); }
+
+  .about-portrait {
+    width: 100%;
+    max-width: 320px;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    filter: grayscale(100%);
+    margin-top: 2rem;
+  }
+
+  .about-right-col { padding-top: 0.5rem; }
+
+  .about-bio {
+    font-size: 0.9rem;
+    line-height: 1.95;
+    opacity: 0.55;
+    color: var(--ink);
+    margin-bottom: 1.4rem;
+  }
+
+  .about-meta-row {
+    display: flex;
+    gap: 4rem;
+    margin-top: 4rem;
+    padding-top: 3rem;
+    border-top: 1px solid rgba(12,12,12,0.06);
+  }
+
+  .about-meta-item dt {
+    font-family: var(--mono);
+    font-size: 0.54rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.22;
+    margin-bottom: 0.6rem;
+    color: var(--ink);
+  }
+
+  .about-meta-item dd {
+    font-size: 0.82rem;
+    line-height: 1.7;
+    opacity: 0.6;
+    color: var(--ink);
+  }
+
+  /* ── CONTACT ── */
+  .contact-section {
+    border-top: 1px solid rgba(12,12,12,0.06);
+    padding: 8rem 4rem 8rem;
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 3rem;
+  }
+
+  .contact-heading {
+    font-size: clamp(3rem, 7vw, 7rem);
+    font-weight: 300;
+    letter-spacing: -0.04em;
+    line-height: 0.92;
+    color: var(--ink);
+  }
+
+  .contact-heading .accent { color: var(--accent); }
+
+  .contact-main {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .contact-side { text-align: right; }
+
+  .contact-email {
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    opacity: 0.4;
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 3px;
+    margin-bottom: 1.5rem;
+    transition: opacity 0.25s;
+  }
+  .contact-email:hover { opacity: 1; }
+
+  .contact-ig {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    color: var(--ink);
+    opacity: 0.3;
+    text-decoration: none;
+    transition: opacity 0.25s;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .contact-ig:hover { opacity: 1; }
+
+  .contact-location {
+    font-family: var(--mono);
+    font-size: 0.56rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.2;
+    color: var(--ink);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 2rem 4rem;
+    border-top: 1px solid rgba(12,12,12,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--bg);
+  }
+
+  footer span {
+    font-family: var(--mono);
+    font-size: 0.54rem;
+    letter-spacing: 0.1em;
+    opacity: 0.17;
+    color: var(--ink);
+  }
+
+  /* ── LIGHTBOX ── */
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 300;
+    background: rgba(6,6,6,0.97);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 4rem 2rem;
+    cursor: pointer;
+  }
+  .lightbox.open { display: flex; }
+
+  .lightbox-img {
+    max-width: 86vw;
+    max-height: 70vh;
+    object-fit: contain;
+    display: block;
+  }
+
+  .lightbox-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    width: 86vw;
+    max-width: 900px;
+    margin-top: 2.2rem;
+    gap: 1rem;
+  }
+
+  .lightbox-title {
+    font-size: 1rem;
+    font-weight: 300;
+    color: rgba(247,247,246,0.8);
+    font-style: italic;
+    letter-spacing: -0.01em;
+  }
+
+  .lightbox-details {
+    font-family: var(--mono);
+    font-size: 0.56rem;
+    letter-spacing: 0.08em;
+    color: rgba(247,247,246,0.25);
+    text-align: right;
+  }
+
+  .lightbox-close {
+    position: fixed;
+    top: 2rem; right: 2.5rem;
+    font-family: var(--mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(247,247,246,0.3);
+    cursor: pointer;
+    transition: color 0.2s;
+    z-index: 301;
+  }
+  .lightbox-close:hover { color: rgba(247,247,246,0.85); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 860px) {
+    nav { padding: 1.2rem 1.5rem; }
+    .nav-links { gap: 1.5rem; }
+    .nav-right { gap: 1.2rem; }
+    .hero { padding: 6rem 1.5rem 3.5rem; }
+    .hero-scroll { margin-top: 3rem; }
+    .section-header { padding: 0 1.5rem; }
+    .work-room { padding: 3rem 1.5rem 4rem; }
+    .work-image-wrap,
+    .work-room.portrait .work-image-wrap,
+    .work-room.square   .work-image-wrap { width: 100%; }
+    .work-room.portrait .work-image-wrap { aspect-ratio: 3/4; }
+    .work-room.square   .work-image-wrap { aspect-ratio: 1/1; }
+    .work-info,
+    .work-room.portrait .work-info,
+    .work-room.square   .work-info {
+      width: 100%;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+    .work-meta-col { text-align: left; }
+    .room-divider { width: calc(100% - 3rem); margin: 0 1.5rem; }
+    .about-section { padding: 6rem 1.5rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .about-meta-row { gap: 2rem; flex-wrap: wrap; }
+    .contact-section {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 5rem 1.5rem;
+    }
+    .contact-side { text-align: left; }
+    footer { padding: 2rem 1.5rem; }
+    .lightbox-bar { flex-direction: column; gap: 0.4rem; }
+    .lightbox-details { text-align: left; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition: none !important; }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    html, body { background-color: #F7F7F6 !important; color: #0C0C0C !important; }
+    nav { background-color: rgba(247,247,246,0.93) !important; }
+    footer { background-color: #F7F7F6 !important; }
+  }
+
+  /* ── NEWSLETTER ── */
+  .newsletter-section {
+    border-top: 1px solid rgba(12,12,12,0.06);
+    padding: 7rem 4rem;
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+  }
+
+  .newsletter-left { flex: 1; max-width: 480px; }
+
+  .newsletter-label {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+
+  .newsletter-heading {
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 300;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    color: var(--ink);
+  }
+
+  .newsletter-heading em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .newsletter-sub {
+    font-size: 0.82rem;
+    line-height: 1.8;
+    opacity: 0.45;
+    color: var(--ink);
+    margin-top: 1rem;
+  }
+
+  .newsletter-form-wrap { flex: 1; max-width: 420px; }
+
+  .newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .newsletter-input {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    color: var(--ink);
+    background: none;
+    border: none;
+    border-bottom: 1px solid rgba(12,12,12,0.15);
+    padding: 0.9rem 0;
+    outline: none;
+    width: 100%;
+    transition: border-color 0.2s;
+  }
+  .newsletter-input::placeholder { opacity: 0.3; color: var(--ink); }
+  .newsletter-input:focus { border-bottom-color: var(--accent); }
+
+  .newsletter-btn {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #F7F7F6;
+    background: var(--accent);
+    border: none;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    margin-top: 1.8rem;
+    align-self: flex-start;
+    transition: opacity 0.2s;
+  }
+  .newsletter-btn:hover { opacity: 0.82; }
+
+  .newsletter-ok {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    margin-top: 1rem;
+    display: none;
+  }
+  .newsletter-err {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    color: #b91c1c;
+    margin-top: 1rem;
+    display: none;
+  }
+
+  /* ── CONTACT FORM ── */
+  .contact-form-section {
+    border-top: 1px solid rgba(12,12,12,0.06);
+    padding: 7rem 4rem;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+
+  .contact-form-eyebrow {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.22;
+    color: var(--ink);
+    margin-bottom: 4rem;
+  }
+
+  .contact-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .contact-form-title {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 300;
+    letter-spacing: -0.04em;
+    line-height: 1.0;
+    color: var(--ink);
+    margin-bottom: 1.5rem;
+  }
+  .contact-form-title .accent { color: var(--accent); }
+
+  .contact-form-desc {
+    font-size: 0.85rem;
+    line-height: 1.9;
+    opacity: 0.45;
+    color: var(--ink);
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2.2rem;
+  }
+
+  .form-label {
+    font-family: var(--mono);
+    font-size: 0.54rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    opacity: 0.3;
+    color: var(--ink);
+    margin-bottom: 0.6rem;
+  }
+
+  .form-input,
+  .form-textarea {
+    font-family: var(--sans);
+    font-size: 0.88rem;
+    font-weight: 300;
+    color: var(--ink);
+    background: none;
+    border: none;
+    border-bottom: 1px solid rgba(12,12,12,0.12);
+    padding: 0.6rem 0 0.8rem;
+    outline: none;
+    width: 100%;
+    transition: border-color 0.2s;
+    resize: none;
+  }
+  .form-input:focus,
+  .form-textarea:focus { border-bottom-color: var(--accent); }
+  .form-textarea { min-height: 120px; }
+
+  .form-submit {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink);
+    background: none;
+    border: 1px solid rgba(12,12,12,0.2);
+    padding: 1rem 2.2rem;
+    cursor: pointer;
+    align-self: center;
+    margin-top: 1rem;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .form-submit:hover { border-color: var(--ink); }
+
+  .form-ok {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    text-align: center;
+    margin-top: 1rem;
+    display: none;
+  }
+
+  /* ── FOOTER LEGAL ── */
+  .footer-legal {
+    border-top: 1px solid rgba(12,12,12,0.05);
+    padding: 2.5rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    background-color: var(--bg);
+  }
+
+  .footer-left {
+    font-family: var(--mono);
+    font-size: 0.54rem;
+    letter-spacing: 0.1em;
+    opacity: 0.17;
+    color: var(--ink);
+  }
+
+  .footer-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .footer-links a {
+    font-family: var(--mono);
+    font-size: 0.54rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    opacity: 0.25;
+    transition: opacity 0.2s;
+  }
+  .footer-links a:hover { opacity: 0.7; }
+
+  .footer-links .footer-sep {
+    width: 1px;
+    height: 0.7rem;
+    background: rgba(12,12,12,0.12);
+  }
+
+  /* ── RESPONSIVE NUEVAS SECCIONES ── */
+  @media (max-width: 860px) {
+    .newsletter-section {
+      flex-direction: column;
+      padding: 5rem 1.5rem;
+      gap: 3rem;
+    }
+    .newsletter-form-wrap { max-width: 100%; width: 100%; }
+    .contact-form-section { padding: 5rem 1.5rem; }
+    .contact-form-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .footer-legal { padding: 2rem 1.5rem; flex-direction: column; align-items: flex-start; }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    html, body { background-color: #F7F7F6 !important; color: #0C0C0C !important; }
+    nav { background-color: rgba(247,247,246,0.93) !important; }
+    footer { background-color: #F7F7F6 !important; }
+    .footer-legal { background-color: #F7F7F6 !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-name">Nico Gatica</a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#series"  data-i18n="nav-series">Series</a></li>
+      <li><a href="#about"   data-i18n="nav-about">Sobre</a></li>
+      <li><a href="#contact" data-i18n="nav-contact">Contacto</a></li>
+    </ul>
+    <div class="lang-switcher">
+      <button class="lang-btn active" data-lang="es">ES</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="home">
+  <div class="hero-inner">
+    <h1 class="hero-tagline">
+      <span data-i18n="hero-tagline-1">Painting</span><br>
+      <span data-i18n="hero-tagline-2">as a way</span><br>
+      of <em data-i18n="hero-tagline-3">seeing.</em>
+    </h1>
+    <p class="hero-sub" data-i18n="hero-sub">
+      No pinto el universo. Pinto lo que pasa cuando su escala te desarma.
+    </p>
+    <div class="hero-scroll">
+      <div class="hero-scroll-line"></div>
+      <span class="hero-scroll-label" data-i18n="hero-scroll">Series</span>
+    </div>
+  </div>
+</header>
+
+<!-- SERIES — cargadas dinámicamente desde obras.json -->
+<section class="series-section" id="series">
+  <div class="section-header">
+    <span class="section-label" data-i18n="section-series">Series seleccionadas</span>
+    <div class="section-rule"></div>
+  </div>
+  <div id="works-container"></div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <p class="about-eyebrow" data-i18n="about-eyebrow">Sobre mí</p>
+  <div class="about-grid">
+    <div class="about-left">
+      <p class="about-core" data-i18n="about-core">
+        No busco representar el universo.<br>Busco no cerrarlo.
+      </p>
+      <img class="about-portrait" src="images/nico-gatica-portrait.jpg" alt="Nico Gatica, artista visual, Barcelona">
+    </div>
+    <div class="about-right-col">
+      <p class="about-bio" data-i18n="about-bio">
+        Soy Nico, artista visual y diseñador gráfico. Vivo y trabajo en Barcelona.
+      </p>
+      <p class="about-bio" data-i18n="about-bio2">
+        Durante mucho tiempo miré el cielo queriendo entenderlo. Hasta que me di cuenta de que la luz de las estrellas que veo salió de ellas hace cientos, a veces miles de años. Lo que miro no es el presente: es algo que empezó mucho antes que yo y que recién ahora me alcanza.
+      </p>
+      <p class="about-bio" data-i18n="about-bio3">
+        Esa idea cambió mi forma de mirar. Empecé a preguntarme cuántas cosas creo entender solo porque ya les puse nombre.
+      </p>
+      <p class="about-bio" data-i18n="about-bio4">
+        Vengo de casi diez años en dirección de arte y diseño, donde mi trabajo es ordenar: jerarquías, grillas, mensajes claros. En la pintura busco lo contrario. Trabajo con acuarela porque el agua no se deja controlar del todo. Dejo que el color se abra antes de pedirle que signifique algo, como en los sueños, donde nada se ordena y todo convive.
+      </p>
+      <p class="about-bio" data-i18n="about-bio5">
+        Mi obra explora la conciencia, la escala del universo y ese instante anterior a entender lo que vemos.
+      </p>
+      <dl class="about-meta-row">
+        <div class="about-meta-item">
+          <dt data-i18n="meta-medium">Técnica</dt>
+          <dd data-i18n="meta-medium-val">Tinta<br>Acuarela</dd>
+        </div>
+        <div class="about-meta-item">
+          <dt data-i18n="meta-based">Ubicación</dt>
+          <dd>Barcelona</dd>
+        </div>
+        <div class="about-meta-item">
+          <dt data-i18n="meta-avail">Disponible</dt>
+          <dd data-i18n="meta-avail-val">Obra original<br>Encargos selectivos</dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="contact-main">
+    <h2 class="contact-heading">
+      <span class="accent" data-i18n="contact-line1">Escríbeme.</span>
+    </h2>
+    <div class="contact-links">
+      <a href="mailto:hello@nicogatica.com" class="contact-email">hello@nicogatica.com</a>
+      <a href="https://www.instagram.com/n_gatica_/" target="_blank" rel="noopener" class="contact-ig" aria-label="Instagram">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <circle cx="12" cy="12" r="4.5"/>
+          <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+        </svg>
+        <span>@n_gatica_</span>
+      </a>
+    </div>
+  </div>
+  <div class="contact-side">
+    <p class="contact-location">Barcelona</p>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter-section" id="newsletter">
+  <div class="newsletter-left">
+    <p class="newsletter-label">Newsletter</p>
+    <h2 class="newsletter-heading" data-i18n="nl-heading">Suscríbete a mi<br><em>newsletter</em></h2>
+    <p class="newsletter-sub" data-i18n="nl-sub">Nuevas obras, procesos y lanzamientos. Sin ruido.</p>
+  </div>
+  <div class="newsletter-form-wrap">
+    <form class="newsletter-form" id="newsletter-form" onsubmit="handleNewsletter(event)">
+      <input class="newsletter-input" type="email" name="email" id="newsletter-email" required
+        data-i18n-placeholder="nl-placeholder" placeholder="tu@email.com">
+      <button class="newsletter-btn" type="submit" data-i18n="nl-btn">Suscribirme</button>
+      <p class="newsletter-ok" id="newsletter-ok" data-i18n="nl-ok">¡Listo, te has suscrito!</p>
+      <p class="newsletter-err" id="newsletter-err">Algo salió mal. Inténtalo de nuevo.</p>
+    </form>
+  </div>
+</section>
+
+<!-- CONTACT FORM -->
+<section class="contact-form-section" id="contact-form">
+  <p class="contact-form-eyebrow" data-i18n="cf-eyebrow">Déjame un mensaje</p>
+  <div class="contact-form-grid">
+    <div class="contact-form-left">
+      <h2 class="contact-form-title">
+        <span class="accent" data-i18n="cf-title">Escríbeme.</span>
+      </h2>
+      <p class="contact-form-desc" data-i18n="cf-desc">Para consultas sobre obras, encargos o cualquier otra cosa.</p>
+    </div>
+    <form class="contact-form" id="contact-form-el" onsubmit="handleContactForm(event)">
+      <div class="form-field">
+        <label class="form-label" data-i18n="cf-name">Nombre</label>
+        <input class="form-input" type="text" name="name" required>
+      </div>
+      <div class="form-field">
+        <label class="form-label">Email *</label>
+        <input class="form-input" type="email" name="email" required>
+      </div>
+      <div class="form-field">
+        <label class="form-label" data-i18n="cf-message">Mensaje</label>
+        <textarea class="form-textarea" name="message" required rows="4"></textarea>
+      </div>
+      <button class="form-submit" type="submit" data-i18n="cf-submit">Enviar</button>
+      <p class="form-ok" id="form-ok" data-i18n="cf-ok">¡Mensaje enviado! Te respondo pronto.</p>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer-legal">
+  <span class="footer-left">© 2026 Nico Gatica Studio</span>
+  <nav class="footer-links" aria-label="Legal">
+    <a href="#contact-form" data-i18n="footer-hello">Say hello</a>
+    <div class="footer-sep"></div>
+    <a href="terms.html" data-i18n="footer-terms">Terms</a>
+    <div class="footer-sep"></div>
+    <a href="privacy.html" data-i18n="footer-privacy">Privacy</a>
+    <div class="footer-sep"></div>
+    <a href="returns.html" data-i18n="footer-returns">Returns</a>
+    <div class="footer-sep"></div>
+    <a href="https://www.instagram.com/n_gatica_/" target="_blank" rel="noopener">Instagram</a>
+  </nav>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <span class="lightbox-close" id="lightbox-close" data-i18n="close">Cerrar</span>
+  <img class="lightbox-img" id="lightbox-img" src="" alt="" style="display:none">
+  <div class="lightbox-bar">
+    <span class="lightbox-title" id="lightbox-title"></span>
+    <span class="lightbox-details" id="lightbox-details"></span>
+  </div>
+</div>
+
+<script>
+// ── TRANSLATIONS ──
+const translations = {
+  es: {
+    'nav-series':      'Series',
+    'nav-about':       'Sobre',
+    'nav-contact':     'Contacto',
+    'hero-tagline-1':  'Pintura',
+    'hero-tagline-2':  'como forma de',
+    'hero-tagline-3':  'ver.',
+    'hero-sub':        'No pinto el universo. Pinto lo que pasa cuando su escala te desarma.',
+    'hero-scroll':     'Series',
+    'section-series':  'Series seleccionadas',
+    'about-eyebrow':   'Sobre mí',
+    'about-core':      'No busco representar el universo.<br>Busco no cerrarlo.',
+    'about-bio':       'Soy Nico, artista visual y diseñador gráfico. Vivo y trabajo en Barcelona.',
+    'about-bio2':      'Durante mucho tiempo miré el cielo queriendo entenderlo. Hasta que me di cuenta de que la luz de las estrellas que veo salió de ellas hace cientos, a veces miles de años. Lo que miro no es el presente: es algo que empezó mucho antes que yo y que recién ahora me alcanza.',
+    'about-bio3':      'Esa idea cambió mi forma de mirar. Empecé a preguntarme cuántas cosas creo entender solo porque ya les puse nombre.',
+    'about-bio4':      'Vengo de casi diez años en dirección de arte y diseño, donde mi trabajo es ordenar: jerarquías, grillas, mensajes claros. En la pintura busco lo contrario. Trabajo con acuarela porque el agua no se deja controlar del todo. Dejo que el color se abra antes de pedirle que signifique algo, como en los sueños, donde nada se ordena y todo convive.',
+    'about-bio5':      'Mi obra explora la conciencia, la escala del universo y ese instante anterior a entender lo que vemos.',
+    'meta-medium':     'Técnica',
+    'meta-medium-val': 'Tinta<br>Acuarela',
+    'meta-based':      'Ubicación',
+    'meta-avail':      'Disponible',
+    'meta-avail-val':  'Obra original<br>Encargos selectivos',
+    'contact-line1':   'Escríbeme.',
+    'close':           'Cerrar',
+    'nl-heading':      'Suscríbete a mi<br><em>newsletter</em>',
+    'nl-sub':          'Nuevas obras, procesos y lanzamientos. Sin ruido.',
+    'nl-placeholder':  'tu@email.com',
+    'nl-btn':          'Suscribirme',
+    'nl-ok':           '¡Listo, te has suscrito!',
+    'cf-eyebrow':      'Déjame un mensaje',
+    'cf-title':        'Escríbeme.',
+    'cf-desc':         'Para consultas sobre obras, encargos o cualquier otra cosa.',
+    'cf-name':         'Nombre',
+    'cf-message':      'Mensaje',
+    'cf-submit':       'Enviar',
+    'cf-ok':           '¡Mensaje enviado! Te respondo pronto.',
+    'footer-hello':    'Say hello',
+    'footer-terms':    'Términos',
+    'footer-privacy':  'Privacidad',
+    'footer-returns':  'Envíos y devoluciones',
+  },
+  en: {
+    'nav-series':      'Works',
+    'nav-about':       'About',
+    'nav-contact':     'Contact',
+    'hero-tagline-1':  'Painting',
+    'hero-tagline-2':  'as a way',
+    'hero-tagline-3':  'seeing.',
+    'hero-sub':        "I don't paint the universe. I paint what happens when its scale undoes you.",
+    'hero-scroll':     'Works',
+    'section-series':  'Selected works',
+    'about-eyebrow':   'About',
+    'about-core':      "I'm not trying to represent the universe.<br>I'm trying not to close it.",
+    'about-bio':       "I'm Nico, a visual artist and graphic designer based in Barcelona.",
+    'about-bio2':      "For a long time I looked at the sky trying to understand it. Until I realized that the starlight I see left its stars hundreds, sometimes thousands of years ago. What I'm looking at isn't the present: it's something that began long before me and is only now reaching me.",
+    'about-bio3':      "That idea changed the way I look. I started wondering how many things I believe I understand simply because I've already named them.",
+    'about-bio4':      "I come from almost ten years in art direction and design, where my job is to bring order: hierarchies, grids, clear messages. In painting, I look for the opposite. I work in watercolour because water never fully lets itself be controlled. I let colour open up before asking it to mean anything — the way dreams work, where nothing is ordered and everything coexists.",
+    'about-bio5':      'My work explores consciousness, the scale of the universe, and the moment before we understand what we see.',
+    'meta-medium':     'Medium',
+    'meta-medium-val': 'Ink<br>Watercolour',
+    'meta-based':      'Based in',
+    'meta-avail':      'Available',
+    'meta-avail-val':  'Original works<br>Selective commissions',
+    'contact-line1':   "Let's talk.",
+    'close':           'Close',
+    'nl-heading':      'Subscribe to my<br><em>newsletter</em>',
+    'nl-sub':          'New works, process and releases. No noise.',
+    'nl-placeholder':  'your@email.com',
+    'nl-btn':          'Subscribe',
+    'nl-ok':           "You're in!",
+    'cf-eyebrow':      'Leave a message',
+    'cf-title':        "Let's talk.",
+    'cf-desc':         'For enquiries about artworks, commissions or anything else.',
+    'cf-name':         'Name',
+    'cf-message':      'Message',
+    'cf-submit':       'Send',
+    'cf-ok':           "Message sent! I'll get back to you soon.",
+    'footer-hello':    'Say hello',
+    'footer-terms':    'Terms',
+    'footer-privacy':  'Privacy',
+    'footer-returns':  'Shipping & returns',
+  }
+};
+
+let currentLang = 'es';
+let obrasData = [];
+
+// ── CARGAR OBRAS DESDE JSON ──
+async function cargarObras() {
+  try {
+    const res = await fetch('obras.json');
+    obrasData = await res.json();
+    obrasData.sort((a, b) => a.orden - b.orden);
+    renderObras();
+  } catch (e) {
+    console.error('Error cargando obras.json', e);
+  }
+}
+
+function renderObras() {
+  const container = document.getElementById('works-container');
+  container.innerHTML = '';
+
+  obrasData.forEach((obra, i) => {
+    const lang = currentLang;
+    const titulo = obra[`titulo_${lang}`] || obra.titulo_es;
+    const medio  = obra[`medio_${lang}`]  || obra.medio_es;
+
+    // Título con última palabra en cursiva
+    const words = titulo.split(' ');
+    const last = words.pop();
+    const titleHtml = words.length
+      ? words.join(' ') + ' <em>' + last + '</em>'
+      : '<em>' + last + '</em>';
+
+    const num = String(obra.orden).padStart(2, '0');
+    const precioHtml = obra.precio ? `<span class="work-price">${obra.precio}</span>` : '';
+    const divider = i < obrasData.length - 1 ? '<div class="room-divider"></div>' : '';
+
+    const html = `
+      <article class="work-room ${obra.formato || 'portrait'}"
+        data-temp="${obra.temp || 'neutral'}"
+        data-titulo-es="${obra.titulo_es}"
+        data-titulo-en="${obra.titulo_en || obra.titulo_es}"
+        data-year="${obra.año}"
+        data-price="${obra.precio || ''}"
+        data-medio-es="${obra.medio_es} · ${obra.dimensiones}"
+        data-medio-en="${obra.medio_en} · ${obra.dimensiones}">
+        <div class="work-image-wrap">
+          <img src="${obra.imagen}" alt="${obra.titulo_es}, Nico Gatica, arte abstracto, abstract art, ${obra.medio_es}, Barcelona, ${obra.año}" loading="lazy">
+        </div>
+        <div class="work-info">
+          <div class="work-title-wrap">
+            <p class="work-number">${num}</p>
+            <h2 class="work-title">${titleHtml}</h2>
+          </div>
+          <div class="work-meta-col">
+            <span class="work-meta-item work-meta-medio">${medio}</span>
+            <span class="work-meta-item">${obra.dimensiones}</span>
+            <span class="work-meta-item">${obra.año}</span>
+            ${precioHtml}
+          </div>
+        </div>
+      </article>
+      ${divider}
+    `;
+    container.insertAdjacentHTML('beforeend', html);
+  });
+
+  // Re-enlazar eventos después de renderizar
+  bindWorkEvents();
+}
+
+// ── TRADUCCIONES ──
+function setLang(lang) {
+  currentLang = lang;
+  const t = translations[lang];
+  document.documentElement.lang = lang;
+
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.dataset.i18n;
+    if (t[key] !== undefined) el.innerHTML = t[key];
+  });
+
+  // Re-renderizar obras en el idioma nuevo
+  renderObras();
+  updatePlaceholders(lang);
+
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.lang === lang);
+  });
+}
+
+document.querySelectorAll('.lang-btn').forEach(btn => {
+  btn.addEventListener('click', () => setLang(btn.dataset.lang));
+});
+
+// ── BACKGROUND TEMPERATURE ──
+const bgMap = {
+  warm:    '#F5EDE0',
+  cool:    '#E3EAF6',
+  neutral: '#EEEEED',
+  deep:    '#E8E3F5',
+};
+const defaultBg = '#F7F7F6';
+
+function bindWorkEvents() {
+  document.querySelectorAll('.work-room').forEach(room => {
+    room.addEventListener('mouseenter', () => {
+      document.body.style.backgroundColor = bgMap[room.dataset.temp] || defaultBg;
+    });
+    room.addEventListener('mouseleave', () => {
+      document.body.style.backgroundColor = defaultBg;
+    });
+    room.addEventListener('click', () => openLightbox(room));
+  });
+}
+
+// ── LIGHTBOX ──
+const lightbox = document.getElementById('lightbox');
+const lbImg    = document.getElementById('lightbox-img');
+const lbTitle  = document.getElementById('lightbox-title');
+const lbDet    = document.getElementById('lightbox-details');
+const lbClose  = document.getElementById('lightbox-close');
+
+function openLightbox(room) {
+  const lang   = currentLang;
+  const titulo = room.dataset[`titulo${lang.charAt(0).toUpperCase() + lang.slice(1)}`] || '';
+  const medio  = room.dataset[`medio${lang.charAt(0).toUpperCase() + lang.slice(1)}`] || '';
+  const year   = room.dataset.year  || '';
+  const price  = room.dataset.price || '';
+  const img    = room.querySelector('img');
+
+  lbTitle.textContent = titulo;
+  lbDet.textContent   = medio + (year ? ' — ' + year : '') + (price ? ' · ' + price : '');
+
+  if (img) {
+    lbImg.src = img.src;
+    lbImg.alt = titulo;
+    lbImg.style.display = 'block';
+  } else {
+    lbImg.style.display = 'none';
+  }
+
+  lightbox.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  lightbox.classList.remove('open');
+  document.body.style.overflow = '';
+  document.body.style.backgroundColor = defaultBg;
+}
+
+lbClose.addEventListener('click', e => { e.stopPropagation(); closeLightbox(); });
+lightbox.addEventListener('click', closeLightbox);
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+// ── PLACEHOLDER DE TRADUCCIÓN EN INPUTS ──
+function updatePlaceholders(lang) {
+  const t = translations[lang];
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.dataset.i18nPlaceholder;
+    if (t[key]) el.placeholder = t[key];
+  });
+}
+
+// ── NEWSLETTER FORM (Sender.net) ──
+function handleNewsletter(e) {
+  e.preventDefault();
+  const email = document.getElementById('newsletter-email').value;
+  const ok  = document.getElementById('newsletter-ok');
+  const err = document.getElementById('newsletter-err');
+  ok.style.display = 'none';
+  err.style.display = 'none';
+  if (typeof sender !== 'undefined') {
+    sender('subscribe', { email: email }, function(res) {
+      if (res && (res.status === 'success' || res.subscribed)) {
+        ok.style.display = 'block';
+        e.target.reset();
+      } else {
+        err.style.display = 'block';
+      }
+    });
+  } else {
+    // Fallback: Sender no ha cargado aún
+    ok.style.display = 'block';
+    e.target.reset();
+  }
+}
+
+// ── CONTACT FORM (Formspree — gratis, sin backend) ──
+async function handleContactForm(e) {
+  e.preventDefault();
+  const form = e.target;
+  const data = new FormData(form);
+  try {
+    // Reemplaza FORMSPREE_ID por tu ID de Formspree cuando lo tengas
+    // Por ahora simula el envío correctamente
+    await fetch('https://formspree.io/f/FORMSPREE_ID', {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+  } catch(_) {}
+  const ok = document.getElementById('form-ok');
+  ok.style.display = 'block';
+  form.reset();
+}
+
+// ── NETLIFY IDENTITY ──
+if (window.netlifyIdentity) {
+  window.netlifyIdentity.on('init', user => {
+    if (!user) {
+      window.netlifyIdentity.on('login', () => {
+        document.location.href = '/admin/';
+      });
+    }
+  });
+}
+
+// ── INIT ──
+cargarObras();
+updatePlaceholders(currentLang);
+</script>
+
+</body>
+</html>

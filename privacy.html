@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Política de privacidad — Nico Gatica</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=DM+Mono:wght@300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --bg: #F7F7F6; --ink: #0C0C0C; --accent: #3730A3; --sans: 'Inter', sans-serif; --mono: 'DM Mono', monospace; }
+  html { background: var(--bg); }
+  body { background: var(--bg); color: var(--ink); font-family: var(--sans); font-weight: 300; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.8rem 4rem; background: rgba(247,247,246,0.93); backdrop-filter: blur(14px); }
+  .nav-name { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink); text-decoration: none; opacity: 0.55; }
+  .nav-back { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); text-decoration: none; opacity: 0.3; transition: opacity 0.2s; }
+  .nav-back:hover { opacity: 1; }
+  .lang-switcher { display: flex; align-items: center; border: 1px solid rgba(12,12,12,0.12); border-radius: 2px; overflow: hidden; }
+  .lang-btn { font-family: var(--mono); font-size: 0.56rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink); background: none; border: none; padding: 0.28rem 0.52rem; cursor: pointer; opacity: 0.3; transition: opacity 0.2s, background 0.2s; }
+  .lang-btn.active { opacity: 1; background: var(--accent); color: #F7F7F6; }
+  main { max-width: 740px; margin: 0 auto; padding: 10rem 4rem 8rem; }
+  .legal-eyebrow { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.22; color: var(--ink); margin-bottom: 2rem; }
+  .legal-title { font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 300; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 0.8rem; }
+  .legal-updated { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.08em; opacity: 0.3; margin-bottom: 4rem; }
+  .legal-note { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.06em; opacity: 0.4; border-left: 2px solid var(--accent); padding-left: 1rem; margin-bottom: 3rem; line-height: 1.8; }
+  h2 { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.35; margin: 3rem 0 1rem; }
+  p { font-size: 0.88rem; line-height: 1.9; opacity: 0.6; margin-bottom: 1rem; }
+  ul { padding-left: 1.4rem; margin-bottom: 1rem; }
+  li { font-size: 0.88rem; line-height: 1.9; opacity: 0.6; margin-bottom: 0.3rem; }
+  a { color: var(--accent); }
+  footer { border-top: 1px solid rgba(12,12,12,0.05); padding: 2rem 4rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+  footer span { font-family: var(--mono); font-size: 0.54rem; letter-spacing: 0.1em; opacity: 0.17; }
+  footer a { font-family: var(--mono); font-size: 0.54rem; letter-spacing: 0.1em; opacity: 0.25; color: var(--ink); text-decoration: none; }
+  footer a:hover { opacity: 0.7; }
+  .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+  [lang-content] { display: none; }
+  [lang-content].active { display: block; }
+  @media (max-width: 860px) { nav { padding: 1.2rem 1.5rem; } main { padding: 7rem 1.5rem 5rem; } footer { padding: 2rem 1.5rem; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-name">Nico Gatica</a>
+  <div style="display:flex;align-items:center;gap:1.5rem;">
+    <a href="index.html" class="nav-back">← Volver</a>
+    <div class="lang-switcher">
+      <button class="lang-btn active" onclick="setLang('es')">ES</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ES -->
+  <div lang-content="es" class="active">
+    <p class="legal-eyebrow">Legal</p>
+    <h1 class="legal-title">Política de privacidad</h1>
+    <p class="legal-updated">Última actualización: noviembre 2026</p>
+
+    <h2>1. Responsable del tratamiento</h2>
+    <p>Nico Gatica, que opera bajo el nombre comercial Nico Gatica Studio, titular de nicogatica.com.<br>Contacto: <a href="mailto:hello@nicogatica.com">hello@nicogatica.com</a></p>
+
+    <h2>2. Qué datos recogemos</h2>
+    <ul>
+      <li>Datos de identificación y contacto: nombre, correo electrónico, teléfono y dirección postal.</li>
+      <li>Datos de la compra: obras adquiridas, importes, dirección de envío e historial de pedidos.</li>
+      <li>Datos de pago: gestionados directamente por las pasarelas de pago. No tenemos acceso a los datos completos de tu tarjeta.</li>
+      <li>Datos que nos envíes por email o formulario de contacto.</li>
+      <li>Datos de navegación: dirección IP, tipo de dispositivo y navegador, recogidos mediante cookies.</li>
+    </ul>
+
+    <h2>3. Para qué usamos tus datos y con qué base legal</h2>
+    <ul>
+      <li><strong>Gestionar pedidos y encargos:</strong> tramitar el pago, enviar la obra, gestionar devoluciones. Base legal: ejecución del contrato (art. 6.1.b RGPD).</li>
+      <li><strong>Responder a consultas:</strong> base legal: consentimiento (art. 6.1.a RGPD).</li>
+      <li><strong>Newsletter:</strong> solo si te suscribes. Base legal: consentimiento (art. 6.1.a RGPD). Puedes darte de baja en cualquier momento.</li>
+      <li><strong>Obligaciones legales, fiscales y contables:</strong> base legal: obligación legal (art. 6.1.c RGPD).</li>
+    </ul>
+    <p>No tomamos decisiones automatizadas ni elaboramos perfiles con tus datos.</p>
+
+    <h2>4. Cuánto tiempo conservamos tus datos</h2>
+    <ul>
+      <li>Datos de compras: mientras dure la relación contractual y durante los plazos legales (hasta 6 años para documentación contable).</li>
+      <li>Consultas: el tiempo necesario para responderlas y hasta un año después.</li>
+      <li>Newsletter: hasta que te des de baja.</li>
+    </ul>
+
+    <h2>5. Con quién compartimos tus datos</h2>
+    <p>No vendemos ni cedemos tus datos a terceros con fines comerciales. Solo los compartimos cuando es necesario para prestarte el servicio:</p>
+    <ul>
+      <li>Proveedor de alojamiento web.</li>
+      <li>Pasarelas de pago (SumUp / Stripe).</li>
+      <li>Empresas de transporte y mensajería.</li>
+      <li>Proveedor de newsletter (Sender).</li>
+      <li>Administraciones públicas, cuando exista obligación legal.</li>
+    </ul>
+
+    <h2>6. Transferencias internacionales</h2>
+    <p>Algunos proveedores pueden tratar datos fuera del Espacio Económico Europeo. En esos casos, las transferencias se realizan con las garantías previstas en el RGPD (decisiones de adecuación o cláusulas contractuales tipo).</p>
+
+    <h2>7. Tus derechos</h2>
+    <p>Puedes ejercer en cualquier momento los derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad, escribiendo a <a href="mailto:hello@nicogatica.com">hello@nicogatica.com</a>. Te responderemos en el plazo máximo de un mes.</p>
+    <p>Si consideras que no hemos atendido correctamente tus derechos, puedes presentar una reclamación ante la <a href="https://www.aepd.es" target="_blank" rel="noopener">Agencia Española de Protección de Datos</a>.</p>
+
+    <h2>8. Seguridad</h2>
+    <p>El sitio web utiliza cifrado SSL/TLS. Los pagos se procesan mediante pasarelas de pago seguras.</p>
+
+    <h2>9. Menores de edad</h2>
+    <p>Este sitio no está dirigido a menores de 14 años. Para realizar compras es necesario ser mayor de 18 años.</p>
+
+    <h2>10. Cambios en esta política</h2>
+    <p>Publicaremos siempre la versión vigente en esta página, indicando la fecha de la última actualización.</p>
+  </div>
+
+  <!-- EN -->
+  <div lang-content="en">
+    <p class="legal-note">This English version is provided for convenience. In the event of any discrepancy, the Spanish version shall prevail.</p>
+    <p class="legal-eyebrow">Legal</p>
+    <h1 class="legal-title">Privacy policy</h1>
+    <p class="legal-updated">Last updated: November 2026</p>
+
+    <h2>1. Data controller</h2>
+    <p>Nico Gatica, trading as Nico Gatica Studio, owner of nicogatica.com.<br>Contact: <a href="mailto:hello@nicogatica.com">hello@nicogatica.com</a></p>
+
+    <h2>2. What data we collect</h2>
+    <ul>
+      <li>Identification and contact data: name, email address, phone number and postal address.</li>
+      <li>Purchase data: artworks purchased, amounts, shipping address and order history.</li>
+      <li>Payment data: handled directly by the payment gateways. We do not have access to your full card details.</li>
+      <li>Data you send us by email or through the contact form.</li>
+      <li>Browsing data: IP address, device type and browser, collected through cookies.</li>
+    </ul>
+
+    <h2>3. Why we use your data and on what legal basis</h2>
+    <ul>
+      <li><strong>To manage orders and commissions:</strong> processing payment, shipping the artwork, handling returns. Legal basis: performance of the sales contract (Art. 6.1.b GDPR).</li>
+      <li><strong>To answer enquiries:</strong> legal basis: your consent (Art. 6.1.a GDPR).</li>
+      <li><strong>Newsletter:</strong> only if you subscribe. Legal basis: your consent (Art. 6.1.a GDPR). You can unsubscribe at any time.</li>
+      <li><strong>Legal, tax and accounting obligations:</strong> legal basis: legal obligation (Art. 6.1.c GDPR).</li>
+    </ul>
+    <p>We do not make automated decisions or create profiles using your data.</p>
+
+    <h2>4. How long we keep your data</h2>
+    <ul>
+      <li>Purchase data: for the duration of the contractual relationship and for the legally required retention periods (up to 6 years for accounting records).</li>
+      <li>Enquiries: for as long as needed to answer them and up to one year afterwards.</li>
+      <li>Newsletter: until you unsubscribe.</li>
+    </ul>
+
+    <h2>5. Who we share your data with</h2>
+    <p>We do not sell or transfer your data to third parties for commercial purposes. We only share it when necessary to provide our service:</p>
+    <ul>
+      <li>Web hosting provider.</li>
+      <li>Payment gateways (SumUp / Stripe).</li>
+      <li>Shipping and courier companies.</li>
+      <li>Newsletter provider (Sender).</li>
+      <li>Public authorities, where there is a legal obligation.</li>
+    </ul>
+
+    <h2>6. International transfers</h2>
+    <p>Some providers may process data outside the European Economic Area. In such cases, transfers are made with the safeguards provided for in the GDPR (adequacy decisions or standard contractual clauses).</p>
+
+    <h2>7. Your rights</h2>
+    <p>You may exercise the rights of access, rectification, erasure, objection, restriction and portability at any time by emailing <a href="mailto:hello@nicogatica.com">hello@nicogatica.com</a>. We will respond within one month.</p>
+    <p>If you believe we have not handled your request properly, you may lodge a complaint with the <a href="https://www.aepd.es" target="_blank" rel="noopener">Spanish Data Protection Agency</a> or the data protection authority of your country of residence.</p>
+
+    <h2>8. Security</h2>
+    <p>The website uses SSL/TLS encryption. Payments are processed through secure payment gateways.</p>
+
+    <h2>9. Minors</h2>
+    <p>This website is not directed at children under 14. You must be over 18 to make purchases.</p>
+
+    <h2>10. Changes to this policy</h2>
+    <p>The current version will always be published on this page, with the date of the last update.</p>
+  </div>
+
+</main>
+
+<footer>
+  <span>© 2026 Nico Gatica Studio</span>
+  <div class="footer-links">
+    <a href="index.html">← Inicio</a>
+    <a href="terms.html">Terms</a>
+    <a href="returns.html">Returns</a>
+    <a href="https://www.instagram.com/n_gatica_/" target="_blank" rel="noopener">Instagram</a>
+  </div>
+</footer>
+
+<script>
+function setLang(lang) {
+  document.querySelectorAll('[lang-content]').forEach(el => {
+    el.classList.toggle('active', el.getAttribute('lang-content') === lang);
+  });
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent.toLowerCase() === lang);
+  });
+  document.documentElement.lang = lang;
+  document.querySelector('.nav-back').textContent = lang === 'es' ? '← Volver' : '← Back';
+}
+</script>
+</body>
+</html>

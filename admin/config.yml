@@ -1,0 +1,39 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images"
+public_folder: "/images"
+
+locale: es
+
+collections:
+  - name: "obras"
+    label: "Obras"
+    label_singular: "Obra"
+    folder: "_obras"
+    create: true
+    slug: "{{orden}}-{{slug}}"
+    summary: "{{orden}} — {{titulo_es}}"
+    sortable_fields: ["orden"]
+    fields:
+      - { label: "Orden", name: "orden", widget: "number", hint: "Número de orden en el portfolio (1, 2, 3...)" }
+      - { label: "Título (ES)", name: "titulo_es", widget: "string" }
+      - { label: "Título (EN)", name: "titulo_en", widget: "string" }
+      - { label: "Serie (ES)", name: "serie_es", widget: "string", hint: "Ej: Tiempo, Cosmic, Self" }
+      - { label: "Serie (EN)", name: "serie_en", widget: "string" }
+      - { label: "Técnica (ES)", name: "medio_es", widget: "string", hint: "Ej: Acrílico sobre lienzo" }
+      - { label: "Técnica (EN)", name: "medio_en", widget: "string" }
+      - { label: "Dimensiones", name: "dimensiones", widget: "string", hint: "Ej: 90 × 130 cm" }
+      - { label: "Año", name: "año", widget: "number", default: 2026 }
+      - { label: "Precio", name: "precio", widget: "string", hint: "Ej: 1.000 €", required: false }
+      - { label: "Imagen", name: "imagen", widget: "image", hint: "Sube la foto de la obra" }
+      - label: "Formato"
+        name: "formato"
+        widget: "select"
+        options:
+          - { label: "Vertical (3/4)", value: "portrait" }
+          - { label: "Horizontal (4/3)", value: "landscape" }
+          - { label: "Cuadrado (1/1)", value: "square" }
+        default: "portrait"
+      - { label: "Disponible", name: "disponible", widget: "boolean", default: true }

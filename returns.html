@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Envíos y devoluciones — Nico Gatica</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=DM+Mono:wght@300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --bg: #F7F7F6; --ink: #0C0C0C; --accent: #3730A3; --sans: 'Inter', sans-serif; --mono: 'DM Mono', monospace; }
+  html { background: var(--bg); }
+  body { background: var(--bg); color: var(--ink); font-family: var(--sans); font-weight: 300; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.8rem 4rem; background: rgba(247,247,246,0.93); backdrop-filter: blur(14px); }
+  .nav-name { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink); text-decoration: none; opacity: 0.55; }
+  .nav-back { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); text-decoration: none; opacity: 0.3; transition: opacity 0.2s; }
+  .nav-back:hover { opacity: 1; }
+  .lang-switcher { display: flex; align-items: center; border: 1px solid rgba(12,12,12,0.12); border-radius: 2px; overflow: hidden; }
+  .lang-btn { font-family: var(--mono); font-size: 0.56rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink); background: none; border: none; padding: 0.28rem 0.52rem; cursor: pointer; opacity: 0.3; transition: opacity 0.2s, background 0.2s; }
+  .lang-btn.active { opacity: 1; background: var(--accent); color: #F7F7F6; }
+  main { max-width: 740px; margin: 0 auto; padding: 10rem 4rem 8rem; }
+  .legal-eyebrow { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.22; color: var(--ink); margin-bottom: 2rem; }
+  .legal-title { font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 300; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 0.8rem; }
+  .legal-updated { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.08em; opacity: 0.3; margin-bottom: 4rem; }
+  .legal-note { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.06em; opacity: 0.4; border-left: 2px solid var(--accent); padding-left: 1rem; margin-bottom: 3rem; line-height: 1.8; }
+  h2 { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.35; margin: 3rem 0 1rem; }
+  p { font-size: 0.88rem; line-height: 1.9; opacity: 0.6; margin-bottom: 1rem; }
+  ul, ol { padding-left: 1.4rem; margin-bottom: 1rem; }
+  li { font-size: 0.88rem; line-height: 1.9; opacity: 0.6; margin-bottom: 0.4rem; }
+  a { color: var(--accent); }
+  .withdrawal-form { border: 1px solid rgba(12,12,12,0.08); padding: 2rem; margin-top: 1rem; }
+  .withdrawal-form p { font-family: var(--mono); font-size: 0.72rem; line-height: 2.2; }
+  footer { border-top: 1px solid rgba(12,12,12,0.05); padding: 2rem 4rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+  footer span { font-family: var(--mono); font-size: 0.54rem; letter-spacing: 0.1em; opacity: 0.17; }
+  footer a { font-family: var(--mono); font-size: 0.54rem; letter-spacing: 0.1em; opacity: 0.25; color: var(--ink); text-decoration: none; }
+  footer a:hover { opacity: 0.7; }
+  .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+  [lang-content] { display: none; }
+  [lang-content].active { display: block; }
+  @media (max-width: 860px) { nav { padding: 1.2rem 1.5rem; } main { padding: 7rem 1.5rem 5rem; } footer { padding: 2rem 1.5rem; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-name">Nico Gatica</a>
+  <div style="display:flex;align-items:center;gap:1.5rem;">
+    <a href="index.html" class="nav-back">← Volver</a>
+    <div class="lang-switcher">
+      <button class="lang-btn active" onclick="setLang('es')">ES</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ES -->
+  <div lang-content="es" class="active">
+    <p class="legal-eyebrow">Legal</p>
+    <h1 class="legal-title">Envíos y devoluciones</h1>
+    <p class="legal-updated">Última actualización: noviembre 2026</p>
+    <p>Cada obra sale del estudio embalada a mano y va acompañada de su certificado de autenticidad firmado.</p>
+
+    <h2>Envíos — Plazos</h2>
+    <ul>
+      <li><strong>Plazo habitual:</strong> preparamos y enviamos cada pedido en un plazo de 7 días desde la confirmación del pago.</li>
+      <li><strong>Periodos vacacionales:</strong> en verano, Navidad y otros festivos, el plazo puede ampliarse hasta 15 días. Te avisaremos por email si tu pedido coincide con uno de estos periodos.</li>
+      <li><strong>Seguimiento:</strong> cuando el pedido salga del estudio, recibirás un email con el número de seguimiento.</li>
+    </ul>
+    <p>El tiempo de transporte depende del destino y se suma al plazo de preparación. En cualquier caso, el pedido se entregará en un máximo de 30 días desde la confirmación. Si no pudiéramos cumplirlo, te avisaremos y podrás elegir entre esperar o cancelar el pedido con reembolso íntegro.</p>
+
+    <h2>Destinos</h2>
+    <p>Enviamos a España y la Unión Europea. Los envíos fuera de la UE pueden estar sujetos a aranceles e impuestos de importación del país de destino, que corren a cargo del comprador.</p>
+
+    <h2>Embalaje</h2>
+    <p>Las obras originales se envían protegidas en su bastidor o, en el caso de formatos medianos o grandes, enrolladas y sin montar en bastidor. Cada pieza está preparada para viajar con seguridad.</p>
+
+    <h2>Gastos de envío</h2>
+    <p>Los gastos de envío se calculan y se muestran en el proceso de compra, antes del pago.</p>
+
+    <h2>Daños durante el transporte</h2>
+    <p>Revisa el paquete al recibirlo. Si la obra llega dañada, escríbenos en las 48 horas siguientes a la entrega a <a href="mailto:hello@nicogatica.com">hello@nicogatica.com</a>, con fotografías del embalaje y de la pieza. Buscaremos la mejor solución: reparación, sustitución si es posible, o reembolso íntegro. Avisarnos más tarde no te hace perder tus derechos de garantía.</p>
+
+    <h2>Devoluciones — Derecho de desistimiento</h2>
+    <p>Conforme a la normativa de consumo, dispones de 14 días naturales desde la recepción para desistir de la compra. Para ejercerlo, deben cumplirse todas estas condiciones:</p>
+    <ol>
+      <li><strong>Comunicación por escrito</strong> a <a href="mailto:hello@nicogatica.com">hello@nicogatica.com</a> dentro del plazo, indicando tu nombre, número de pedido y la obra.</li>
+      <li><strong>Plazo de envío:</strong> la obra debe enviarse en un máximo de 14 días desde tu comunicación.</li>
+      <li><strong>Estado de la obra:</strong> debe devolverse en el mismo estado en que se entregó, sin colgar, enmarcar ni manipular, y acompañada del certificado de autenticidad original.</li>
+      <li><strong>Embalaje:</strong> debe devolverse con un embalaje profesional equivalente al original. Recomendamos reutilizar el embalaje original.</li>
+      <li><strong>Gastos y riesgo:</strong> los gastos de devolución corren a tu cargo. La obra viaja bajo tu responsabilidad hasta que la recibamos.</li>
+    </ol>
+
+    <h2>Reembolso</h2>
+    <p>Reembolsaremos el precio de la obra y los gastos de envío iniciales (hasta el importe de la opción estándar más económica) una vez recibida y comprobada la obra, en un plazo máximo de 14 días desde tu comunicación.</p>
+    <p>Si la obra llega dañada por embalaje insuficiente, presenta marcas de manipulación, o falta el certificado, descontaremos del reembolso la pérdida de valor correspondiente. Te informaremos con fotografías.</p>
+
+    <h2>Excepciones</h2>
+    <p>No se admiten devoluciones de obras realizadas por encargo o personalizadas (art. 103.c del TRLGDCU).</p>
+
+    <h2>Obras defectuosas o incorrectas</h2>
+    <p>Si recibes una obra con un defecto o que no corresponde con tu pedido, escríbenos a <a href="mailto:hello@nicogatica.com">hello@nicogatica.com</a> con fotografías. En ese caso nos hacemos cargo de los gastos de devolución y buscamos la mejor solución.</p>
+
+    <h2>Contacto</h2>
+    <p><a href="mailto:hello@nicogatica.com">hello@nicogatica.com</a></p>
+
+    <h2>Formulario de desistimiento</h2>
+    <div class="withdrawal-form">
+      <p>A la atención de: Nico Gatica Studio — hello@nicogatica.com</p>
+      <p>Por la presente le comunico que desisto de mi contrato de venta del siguiente bien:</p>
+      <p>Obra: ____________________</p>
+      <p>Número de pedido: ____________________</p>
+      <p>Pedido el / recibido el: ____________________</p>
+      <p>Nombre del consumidor: ____________________</p>
+      <p>Dirección del consumidor: ____________________</p>
+      <p>Fecha: ____________________</p>
+    </div>
+  </div>
+
+  <!-- EN -->
+  <div lang-content="en">
+    <p class="legal-note">This English version is provided for convenience. In the event of any discrepancy, the Spanish version shall prevail.</p>
+    <p class="legal-eyebrow">Legal</p>
+    <h1 class="legal-title">Shipping &amp; returns</h1>
+    <p class="legal-updated">Last updated: November 2026</p>
+    <p>Every artwork leaves the studio hand-packed and comes with its signed certificate of authenticity.</p>
+
+    <h2>Shipping — Dispatch times</h2>
+    <ul>
+      <li><strong>Standard time:</strong> we prepare and ship each order within 7 days of payment confirmation.</li>
+      <li><strong>Holiday periods:</strong> in summer, at Christmas and during other holidays, this may be extended to around 15 days. We will let you know by email if your order falls within one of these periods.</li>
+      <li><strong>Tracking:</strong> when your order leaves the studio, you will receive an email with the tracking number.</li>
+    </ul>
+    <p>Transit time depends on the destination and is added to the preparation time. In any case, your order will be delivered within a maximum of 30 days of confirmation. If we are unable to meet this, we will let you know and you may choose to wait or cancel the order with a full refund.</p>
+
+    <h2>Destinations</h2>
+    <p>We ship to Spain and the European Union. Shipments outside the EU may be subject to duties and import taxes in the destination country, which are the responsibility of the buyer.</p>
+
+    <h2>Packaging</h2>
+    <p>Original artworks are shipped protected on their stretcher frame or, for medium and large formats, rolled and unstretched. Every piece is prepared to travel safely.</p>
+
+    <h2>Shipping costs</h2>
+    <p>Shipping costs are calculated and shown during checkout, before payment.</p>
+
+    <h2>Damage in transit</h2>
+    <p>Please check the package when you receive it. If the artwork arrives damaged, write to us within 48 hours of delivery at <a href="mailto:hello@nicogatica.com">hello@nicogatica.com</a>, with photos of the packaging and the piece. We will find the best solution: repair, replacement where possible, or a full refund. Notifying us later does not affect your warranty rights.</p>
+
+    <h2>Returns — Right of withdrawal</h2>
+    <p>You have 14 calendar days from receipt of the artwork to withdraw from the purchase. To exercise this right, all of the following conditions must be met:</p>
+    <ol>
+      <li><strong>Written notice</strong> to <a href="mailto:hello@nicogatica.com">hello@nicogatica.com</a> within the period, stating your name, order number and the artwork.</li>
+      <li><strong>Shipping deadline:</strong> the artwork must be sent back within 14 days of your notice.</li>
+      <li><strong>Condition of the artwork:</strong> it must be returned in the same condition in which it was delivered, without being hung, framed or handled, and together with the original certificate of authenticity.</li>
+      <li><strong>Packaging:</strong> the artwork must be returned with professional packaging equivalent to the original. We recommend reusing the original packaging.</li>
+      <li><strong>Costs and risk:</strong> all return costs are borne by you. The artwork travels at your risk until we receive it.</li>
+    </ol>
+
+    <h2>Refund</h2>
+    <p>We will refund the price of the artwork and the initial shipping costs (up to the cost of the cheapest standard option) once the artwork has been received and checked, within a maximum of 14 days of your notice.</p>
+    <p>If the artwork arrives damaged due to insufficient packaging, shows signs of handling, or the certificate of authenticity is missing, we will deduct the corresponding loss in value from the refund. We will inform you with photos.</p>
+
+    <h2>Exceptions</h2>
+    <p>Returns are not accepted for commissioned or personalised artworks (Art. 103(c) TRLGDCU).</p>
+
+    <h2>Defective artworks or incorrect items</h2>
+    <p>If you receive an artwork with a defect or that does not match your order, email us at <a href="mailto:hello@nicogatica.com">hello@nicogatica.com</a> with photos. In this case we will cover the return costs and find the best solution.</p>
+
+    <h2>Contact</h2>
+    <p><a href="mailto:hello@nicogatica.com">hello@nicogatica.com</a></p>
+
+    <h2>Withdrawal form</h2>
+    <div class="withdrawal-form">
+      <p>To: Nico Gatica Studio — hello@nicogatica.com</p>
+      <p>I hereby give notice that I withdraw from my contract of sale of the following goods:</p>
+      <p>Artwork: ____________________</p>
+      <p>Order number: ____________________</p>
+      <p>Ordered on / received on: ____________________</p>
+      <p>Name of consumer: ____________________</p>
+      <p>Address of consumer: ____________________</p>
+      <p>Date: ____________________</p>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <span>© 2026 Nico Gatica Studio</span>
+  <div class="footer-links">
+    <a href="index.html">← Inicio</a>
+    <a href="terms.html">Terms</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="https://www.instagram.com/n_gatica_/" target="_blank" rel="noopener">Instagram</a>
+  </div>
+</footer>
+
+<script>
+function setLang(lang) {
+  document.querySelectorAll('[lang-content]').forEach(el => {
+    el.classList.toggle('active', el.getAttribute('lang-content') === lang);
+  });
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent.toLowerCase() === lang);
+  });
+  document.documentElement.lang = lang;
+  document.querySelector('.nav-back').textContent = lang === 'es' ? '← Volver' : '← Back';
+}
+</script>
+</body>
+</html>
