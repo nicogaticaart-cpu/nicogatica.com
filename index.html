@@ -645,23 +645,6 @@
   }
 
   /* ── FOOTER ── */
-  footer {
-    padding: 2rem 4rem;
-    border-top: 1px solid rgba(12,12,12,0.05);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: var(--bg);
-  }
-
-  footer span {
-    font-family: var(--mono);
-    font-size: 0.54rem;
-    letter-spacing: 0.1em;
-    opacity: 0.17;
-    color: var(--ink);
-  }
-
   /* ── LIGHTBOX ── */
   .lightbox {
     display: none;
@@ -756,7 +739,6 @@
       padding: 5rem 1.5rem;
     }
     .contact-side { text-align: left; }
-    footer { padding: 2rem 1.5rem; }
     .lightbox-bar { flex-direction: column; gap: 0.4rem; }
     .lightbox-details { text-align: left; }
   }
@@ -768,7 +750,7 @@
   @media (prefers-color-scheme: dark) {
     html, body { background-color: #F7F7F6 !important; color: #0C0C0C !important; }
     nav { background-color: rgba(247,247,246,0.93) !important; }
-    footer { background-color: #F7F7F6 !important; }
+    .footer-legal { background-color: #F7F7F6 !important; }
   }
 
   /* ── NEWSLETTER ── */
@@ -997,27 +979,27 @@
 
   .footer-left {
     font-family: var(--mono);
-    font-size: 0.54rem;
+    font-size: 0.62rem;
     letter-spacing: 0.1em;
-    opacity: 0.45;
+    opacity: 0.6;
     color: var(--ink);
   }
 
   .footer-links {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 1.5rem;
     flex-wrap: wrap;
   }
 
   .footer-links a {
     font-family: var(--mono);
-    font-size: 0.54rem;
+    font-size: 0.62rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--ink);
+    color: var(--ink) !important;
     text-decoration: none;
-    opacity: 0.5;
+    opacity: 0.65;
     transition: opacity 0.2s;
   }
   .footer-links a:hover { opacity: 1; }
@@ -1025,7 +1007,7 @@
   .footer-links .footer-sep {
     width: 1px;
     height: 0.7rem;
-    background: rgba(12,12,12,0.12);
+    background: rgba(12,12,12,0.25);
   }
 
   /* ── RESPONSIVE NUEVAS SECCIONES ── */
