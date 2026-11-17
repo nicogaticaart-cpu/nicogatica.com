@@ -1198,12 +1198,12 @@
     <button class="nl-popup-close" id="nl-popup-close" data-i18n="nl-popup-close">Cerrar ×</button>
     <h2 class="nl-popup-title" data-i18n="nl-heading">Suscríbete a mi<br><em>newsletter</em></h2>
     <p class="nl-popup-sub" data-i18n="nl-sub">Nuevas obras, procesos y lanzamientos. Sin ruido.</p>
-    <form class="nl-popup-form" id="nl-popup-form" onsubmit="handleNewsletterPopup(event)">
+    <form class="nl-popup-form" id="nl-popup-form">
       <input class="nl-popup-input" type="text" id="nl-popup-name" name="name" required
         data-i18n-placeholder="nl-name-placeholder" placeholder="Tu nombre">
       <input class="nl-popup-input" type="email" id="nl-popup-email" name="email" required
         data-i18n-placeholder="nl-placeholder" placeholder="tu@email.com">
-      <button class="nl-popup-btn" type="submit" data-i18n="nl-btn">Suscribirme</button>
+      <button class="nl-popup-btn" type="button" id="nl-popup-btn" data-i18n="nl-btn">Suscribirme</button>
       <p class="nl-popup-ok" id="nl-popup-ok" data-i18n="nl-ok">¡Listo, te has suscrito!</p>
     </form>
   </div>
@@ -1518,6 +1518,7 @@ async function handleContactForm(e) {
 (function() {
   const overlay = document.getElementById('nl-popup-overlay');
   const closeBtn = document.getElementById('nl-popup-close');
+  const btn = document.getElementById('nl-popup-btn');
 
   // Al cargar, fuerza scroll al top (evita que el navegador recuerde posición anterior)
   window.scrollTo(0, 0);
@@ -1526,6 +1527,11 @@ async function handleContactForm(e) {
   setTimeout(function() {
     overlay.classList.add('visible');
   }, 2000);
+
+  // Botón suscribir — listener directo (evita problemas con onsubmit + setLang)
+  btn.addEventListener('click', function() {
+    handleNewsletterPopup();
+  });
 
   // Cerrar al hacer clic en el botón de cierre
   closeBtn.addEventListener('click', function() {
@@ -1543,32 +1549,55 @@ async function handleContactForm(e) {
   });
 })();
 
-function handleNewsletterPopup(e) {
-  e.preventDefault();
-  const email = document.getElementById('nl-popup-email').value;
-  const name  = document.getElementById('nl-popup-name').value;
-  const ok = document.getElementById('nl-popup-ok');
+function handleNewsletterPopup() {
+  const email = document.getElementById('nl-popup-email').value.trim();
+  const name  = document.getElementById('nl-popup-name').value.trim();
+  const form  = document.getElementById('nl-popup-form');
+  const ok    = document.getElementById('nl-popup-ok');
+
+  if (!email) return;
+
   ok.style.display = 'none';
-  if (typeof sender !== 'undefined') {
-    sender('subscribe', { email: email, firstname: name }, function(res) {
-      if (res && (res.status === 'success' || res.subscribed)) {
-        ok.style.display = 'block';
-        e.target.reset();
-        setTimeout(function() {
-          document.getElementById('nl-popup-overlay').classList.remove('visible');
-        }, 2000);
-      } else {
-        ok.textContent = 'Algo salió mal. Inténtalo de nuevo.';
-        ok.style.color = 'var(--ink)';
-        ok.style.display = 'block';
-      }
-    });
-  } else {
+
+  function onSuccess() {
+    ok.textContent = translations[currentLang]['nl-ok'] || '¡Listo, te has suscrito!';
+    ok.style.color = '';
     ok.style.display = 'block';
-    e.target.reset();
+    form.reset();
     setTimeout(function() {
       document.getElementById('nl-popup-overlay').classList.remove('visible');
     }, 2000);
+  }
+
+  function onError() {
+    ok.textContent = currentLang === 'en' ? 'Something went wrong. Try again.' : 'Algo salió mal. Inténtalo de nuevo.';
+    ok.style.color = 'var(--ink)';
+    ok.style.display = 'block';
+  }
+
+  if (typeof sender !== 'undefined') {
+    sender('subscribe', { email: email, firstname: name }, function(res) {
+      if (res && (res.status === 'success' || res.subscribed || res.status === 200)) {
+        onSuccess();
+      } else {
+        onError();
+      }
+    });
+  } else {
+    // sender.net SDK no cargó aún — intentar de nuevo en 1s
+    setTimeout(function() {
+      if (typeof sender !== 'undefined') {
+        sender('subscribe', { email: email, firstname: name }, function(res) {
+          if (res && (res.status === 'success' || res.subscribed || res.status === 200)) {
+            onSuccess();
+          } else {
+            onError();
+          }
+        });
+      } else {
+        onError();
+      }
+    }, 1000);
   }
 }
 
