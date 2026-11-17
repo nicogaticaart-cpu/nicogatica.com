@@ -886,6 +886,8 @@
     flex-wrap: wrap;
     gap: 1.2rem;
     background-color: var(--bg);
+    position: relative;
+    z-index: 1;
   }
 
   .footer-left {
@@ -1078,7 +1080,7 @@
   <div class="contact-form-grid">
     <div class="contact-form-left">
       <h2 class="contact-form-title">
-        <span class="accent" data-i18n="cf-title">Escríbeme.</span>
+        <span data-i18n="cf-title">Obras, encargos<br>o lo que sea.</span>
       </h2>
       <p class="contact-form-desc" data-i18n="cf-desc">Para consultas sobre obras, encargos o cualquier otra cosa.</p>
     </div>
@@ -1160,7 +1162,7 @@ const translations = {
     'nl-btn':          'Suscribirme',
     'nl-ok':           '¡Listo, te has suscrito!',
     'cf-eyebrow':      'Déjame un mensaje',
-    'cf-title':        'Escríbeme.',
+    'cf-title':        'Obras, encargos<br>o lo que sea.',
     'cf-desc':         'Para consultas sobre obras, encargos o cualquier otra cosa.',
     'cf-name':         'Nombre',
     'cf-message':      'Mensaje',
@@ -1201,7 +1203,7 @@ const translations = {
     'nl-btn':          'Subscribe',
     'nl-ok':           "You're in!",
     'cf-eyebrow':      'Leave a message',
-    'cf-title':        "Let's talk.",
+    'cf-title':        'Works, commissions<br>or anything else.',
     'cf-desc':         'For enquiries about artworks, commissions or anything else.',
     'cf-name':         'Name',
     'cf-message':      'Message',
