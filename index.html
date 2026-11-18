@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light only">
 
-<title>Nico Gatica — Abstract Art</title>
+<title>Nico Gatica — Abstract Watercolour & Acrylic Art | Barcelona</title>
 <meta name="description" content="Nico Gatica is a Barcelona-based visual artist working in watercolour and acrylic. Abstract paintings exploring consciousness, cosmic scale and the moment before understanding. Original works available.">
 <meta name="keywords" content="Nico Gatica, abstract art, abstract painting, watercolour, acrylic, Barcelona artist, contemporary art, original paintings, arte abstracto, acuarela, pintura contemporánea">
 <meta name="author" content="Nico Gatica">
@@ -14,7 +14,7 @@
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://nicogatica.com/">
-<meta property="og:title" content="Nico Gatica — Abstract Art">
+<meta property="og:title" content="Nico Gatica — Abstract Watercolour & Acrylic Art">
 <meta property="og:description" content="Barcelona-based visual artist. Abstract paintings in watercolour and acrylic exploring consciousness, cosmic scale and perception. Original works available.">
 <meta property="og:image" content="https://nicogatica.com/images/tiempo-i.jpg">
 <meta property="og:locale" content="es_ES">
@@ -23,7 +23,7 @@
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Nico Gatica — Abstract Art">
+<meta name="twitter:title" content="Nico Gatica — Abstract Watercolour & Acrylic Art">
 <meta name="twitter:description" content="Barcelona-based visual artist. Abstract paintings exploring consciousness, cosmic scale and perception.">
 <meta name="twitter:image" content="https://nicogatica.com/images/tiempo-i.jpg">
 
@@ -219,7 +219,7 @@
 
   .hero-tagline {
     font-size: clamp(3.5rem, 11vw, 10rem);
-    font-weight: 200;
+    font-weight: 300;
     line-height: 1.0;
     letter-spacing: -0.04em;
     color: var(--ink);
@@ -386,6 +386,21 @@
     color: var(--ink);
     margin-top: 0.4rem;
   }
+  .buy-btn {
+    display: inline-block;
+    margin-top: 0.75rem;
+    padding: 0.45rem 1.1rem;
+    background: var(--accent);
+    color: #fff;
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: opacity 0.2s;
+  }
+  .buy-btn:hover { opacity: 0.8; }
 
   .room-divider {
     width: calc(100% - 8rem);
@@ -1049,22 +1064,6 @@
     footer { background-color: #F7F7F6 !important; }
     .footer-legal { background-color: #F7F7F6 !important; }
   }
-  .buy-btn {
-  display: inline-block;
-  margin-top: 0.75rem;
-  padding: 0.5rem 1.25rem;
-  background: var(--accent);
-  color: white;
-  font-family: var(--mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  text-decoration: none;
-  border-radius: 2px;
-}
-.buy-btn:hover {
-  opacity: 0.85;
-}
 </style>
 </head>
 <body>
@@ -1227,7 +1226,7 @@ const translations = {
     'nav-series':      'Series',
     'nav-about':       'Sobre',
     'nav-contact':     'Contacto',
-    'hero-tagline-1':  'Pinto',
+    'hero-tagline-1':  'Pintura',
     'hero-tagline-2':  'como forma de',
     'hero-tagline-3':  'ver.',
     'hero-sub':        'No pinto el universo. Pinto lo que pasa cuando su escala te desarma.',
@@ -1342,6 +1341,7 @@ function renderObras() {
 
     const num = String(obra.orden).padStart(2, '0');
     const precioHtml = obra.precio ? `<span class="work-price">${obra.precio}</span>` : '';
+    const buyHtml = obra.buy_url ? `<a class="buy-btn" href="${obra.buy_url}" target="_blank" rel="noopener">${currentLang === 'en' ? 'Buy' : 'Comprar'}</a>` : '';
     const divider = i < obrasData.length - 1 ? '<div class="room-divider"></div>' : '';
 
     const html = `
@@ -1366,7 +1366,7 @@ function renderObras() {
             <span class="work-meta-item">${obra.dimensiones}</span>
             <span class="work-meta-item">${obra.año}</span>
             ${precioHtml}
-            ${obra.buy_url ? `<a class="buy-btn" href="${obra.buy_url}" target="_blank">Comprar</a>` : ''}
+            ${buyHtml}
           </div>
         </div>
       </article>
