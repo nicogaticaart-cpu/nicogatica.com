@@ -397,10 +397,120 @@
     letter-spacing: 0.1em;
     text-transform: uppercase;
     text-decoration: none;
+    border: none;
     border-radius: 2px;
+    cursor: pointer;
     transition: opacity 0.2s;
   }
   .buy-btn:hover { opacity: 0.8; }
+  .work-sold {
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #c0392b;
+    margin-top: 0.4rem;
+    font-weight: 600;
+  }
+  /* ── ORDER FORM MODAL ── */
+  .order-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(12,12,12,0.55);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+  }
+  .order-overlay.visible { display: flex; }
+  .order-modal {
+    background: var(--bg);
+    padding: 2.5rem;
+    max-width: 460px;
+    width: 90%;
+    border-radius: 4px;
+    position: relative;
+  }
+  .order-modal h3 {
+    font-family: var(--serif, Georgia, serif);
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+    color: var(--ink);
+  }
+  .order-modal .order-obra {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    opacity: 0.6;
+    margin-bottom: 1.5rem;
+  }
+  .order-field { margin-bottom: 1rem; }
+  .order-field label {
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.6;
+    margin-bottom: 0.3rem;
+  }
+  .order-field input, .order-field textarea {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid rgba(12,12,12,0.2);
+    background: #fff;
+    padding: 0.5rem 0.75rem;
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    color: var(--ink);
+    border-radius: 2px;
+    outline: none;
+  }
+  .order-field input:focus, .order-field textarea:focus {
+    border-color: var(--accent);
+  }
+  .order-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    align-items: center;
+  }
+  .order-submit {
+    padding: 0.55rem 1.4rem;
+    background: var(--accent);
+    color: #fff;
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  .order-submit:hover { opacity: 0.8; }
+  .order-cancel {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    opacity: 0.5;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--ink);
+  }
+  .order-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.2rem;
+    background: none;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    opacity: 0.4;
+    color: var(--ink);
+  }
 
   .room-divider {
     width: calc(100% - 8rem);
@@ -1209,6 +1319,41 @@
 
 <!-- NEWSLETTER POPUP: gestionado por Sender.net -->
 
+<!-- ORDER FORM MODAL -->
+<div class="order-overlay" id="order-overlay">
+  <div class="order-modal">
+    <button class="order-close" onclick="closeOrderForm()">×</button>
+    <h3 id="order-title">Obra</h3>
+    <p class="order-obra" id="order-price"></p>
+    <form id="order-form" onsubmit="submitOrderForm(event)">
+      <div class="order-field">
+        <label>Nombre completo *</label>
+        <input type="text" name="nombre" required>
+      </div>
+      <div class="order-field">
+        <label>Email *</label>
+        <input type="email" name="email" required>
+      </div>
+      <div class="order-field">
+        <label>Dirección de envío *</label>
+        <input type="text" name="direccion" required placeholder="Calle, número, piso">
+      </div>
+      <div class="order-field">
+        <label>Ciudad y código postal *</label>
+        <input type="text" name="ciudad" required placeholder="Barcelona 08001">
+      </div>
+      <div class="order-field">
+        <label>País *</label>
+        <input type="text" name="pais" required placeholder="España">
+      </div>
+      <div class="order-actions">
+        <button type="submit" class="order-submit">Continuar al pago →</button>
+        <button type="button" class="order-cancel" onclick="closeOrderForm()">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
 <!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox">
   <span class="lightbox-close" id="lightbox-close" data-i18n="close">Cerrar</span>
@@ -1340,8 +1485,11 @@ function renderObras() {
       : '<em>' + last + '</em>';
 
     const num = String(obra.orden).padStart(2, '0');
-    const precioHtml = obra.precio ? `<span class="work-price">${obra.precio}</span>` : '';
-    const buyHtml = obra.buy_url ? `<a class="buy-btn" href="${obra.buy_url}" target="_blank" rel="noopener">${currentLang === 'en' ? 'Buy' : 'Comprar'}</a>` : '';
+    const precioHtml = obra.precio && !obra.sold ? `<span class="work-price">${obra.precio}</span>` : '';
+    const soldHtml   = obra.sold ? `<span class="work-sold">${currentLang === 'en' ? 'Sold' : 'Vendida'}</span>` : '';
+    const buyHtml    = obra.buy_url && !obra.sold
+      ? `<button class="buy-btn" onclick="openOrderForm('${obra.buy_url}', '${obra.titulo_es.replace(/'/g,"\\'")}', '${obra.precio || ''}')">${currentLang === 'en' ? 'Buy' : 'Comprar'}</button>`
+      : '';
     const divider = i < obrasData.length - 1 ? '<div class="room-divider"></div>' : '';
 
     const html = `
@@ -1366,6 +1514,7 @@ function renderObras() {
             <span class="work-meta-item">${obra.dimensiones}</span>
             <span class="work-meta-item">${obra.año}</span>
             ${precioHtml}
+            ${soldHtml}
             ${buyHtml}
           </div>
         </div>
@@ -1518,6 +1667,56 @@ async function handleContactForm(e) {
 
 // ── SCROLL AL TOP AL CARGAR ──
 window.scrollTo(0, 0);
+
+// ── ORDER FORM ──
+let _orderUrl = '';
+
+function openOrderForm(buyUrl, titulo, precio) {
+  _orderUrl = buyUrl;
+  document.getElementById('order-title').textContent = titulo;
+  document.getElementById('order-price').textContent = precio ? precio : '';
+  document.getElementById('order-form').reset();
+  document.getElementById('order-overlay').classList.add('visible');
+}
+
+function closeOrderForm() {
+  document.getElementById('order-overlay').classList.remove('visible');
+}
+
+function submitOrderForm(e) {
+  e.preventDefault();
+  const form = e.target;
+  const data = new FormData(form);
+  const nombre    = data.get('nombre');
+  const email     = data.get('email');
+  const direccion = data.get('direccion');
+  const ciudad    = data.get('ciudad');
+  const pais      = data.get('pais');
+  const obra      = document.getElementById('order-title').textContent;
+  const precio    = document.getElementById('order-price').textContent;
+
+  // Enviar datos de envío por email
+  const subject = encodeURIComponent('Pedido: ' + obra);
+  const body = encodeURIComponent(
+    'OBRA: ' + obra + '\nPRECIO: ' + precio +
+    '\n\nNOMBRE: ' + nombre +
+    '\nEMAIL: ' + email +
+    '\nDIRECCIÓN: ' + direccion +
+    '\nCIUDAD: ' + ciudad +
+    '\nPAÍS: ' + pais
+  );
+  window.open('mailto:hello@nicogatica.com?subject=' + subject + '&body=' + body);
+
+  // Redirigir a SumUp
+  setTimeout(function() {
+    closeOrderForm();
+    window.open(_orderUrl, '_blank');
+  }, 500);
+}
+
+document.getElementById('order-overlay').addEventListener('click', function(e) {
+  if (e.target === this) closeOrderForm();
+});
 
 // ── NETLIFY IDENTITY ──
 if (window.netlifyIdentity) {
