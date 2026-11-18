@@ -1202,7 +1202,7 @@
       <li><a href="#series"  data-i18n="nav-series">Series</a></li>
       <li><a href="#about"   data-i18n="nav-about">Sobre</a></li>
       <li><a href="#contact" data-i18n="nav-contact">Contacto</a></li>
-      <li><button class="nav-newsletter-btn sender-popup-trigger" data-i18n="nav-newsletter">Newsletter</button></li>
+      <li><button class="nav-newsletter-btn" id="nav-nl-btn" data-i18n="nav-newsletter">Newsletter</button></li>
     </ul>
     <div class="lang-switcher">
       <button class="lang-btn active" data-lang="es">ES</button>
@@ -1714,28 +1714,26 @@ function submitOrderForm(e) {
   const obra      = document.getElementById('order-title').textContent;
   const precio    = document.getElementById('order-price').textContent;
 
-  // Enviar datos de envío por email
-  const subject = encodeURIComponent('Pedido: ' + obra);
-  const body = encodeURIComponent(
-    'OBRA: ' + obra + '\nPRECIO: ' + precio +
-    '\n\nNOMBRE: ' + nombre +
-    '\nEMAIL: ' + email +
-    '\nDIRECCIÓN: ' + direccion +
-    '\nCIUDAD: ' + ciudad +
-    '\nPAÍS: ' + pais
-  );
-  window.open('mailto:hello@nicogatica.com?subject=' + subject + '&body=' + body);
+  // Guardar datos del pedido para referencia
+  try {
+    localStorage.setItem('lastOrder', JSON.stringify({
+      obra, precio, nombre, email, direccion, ciudad, pais,
+      fecha: new Date().toISOString()
+    }));
+  } catch(_) {}
 
-  // Redirigir a SumUp
-  setTimeout(function() {
-    closeOrderForm();
-    window.open(_orderUrl, '_blank');
-  }, 500);
+  // Redirigir directamente a SumUp
+  closeOrderForm();
+  window.location.href = _orderUrl;
 }
 
 document.getElementById('order-overlay').addEventListener('click', function(e) {
   if (e.target === this) closeOrderForm();
 });
+
+// ── NEWSLETTER BTN ──
+// El botón tiene id="nav-nl-btn" — en Sender panel → tu form → Trigger → Element Selector → "#nav-nl-btn"
+// Sender detecta ese ID y abre el popup automáticamente al hacer click.
 
 // ── NETLIFY IDENTITY ──
 if (window.netlifyIdentity) {
