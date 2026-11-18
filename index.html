@@ -172,6 +172,22 @@
   }
   .nav-links a:hover { opacity: 1; }
 
+  .nav-newsletter-btn {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink);
+    background: none;
+    border: 1px solid currentColor;
+    padding: 0.3em 0.75em;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: opacity 0.25s;
+  }
+  .nav-newsletter-btn:hover { opacity: 1; }
+
   /* ── LANG SWITCHER ── */
   .lang-switcher {
     display: flex;
@@ -1186,6 +1202,7 @@
       <li><a href="#series"  data-i18n="nav-series">Series</a></li>
       <li><a href="#about"   data-i18n="nav-about">Sobre</a></li>
       <li><a href="#contact" data-i18n="nav-contact">Contacto</a></li>
+      <li><button class="nav-newsletter-btn" onclick="window.SenderFormsPopup && window.SenderFormsPopup.open ? window.SenderFormsPopup.open() : (typeof sender !== 'undefined' && sender('showForm', 'en529D'))" data-i18n="nav-newsletter">Newsletter</button></li>
     </ul>
     <div class="lang-switcher">
       <button class="lang-btn active" data-lang="es">ES</button>
@@ -1198,9 +1215,9 @@
 <header class="hero" id="home">
   <div class="hero-inner">
     <h1 class="hero-tagline">
-      <span data-i18n="hero-tagline-1">Painting</span><br>
-      <span data-i18n="hero-tagline-2">as a way</span><br>
-      of <em data-i18n="hero-tagline-3">seeing.</em>
+      Painting<br>
+      as a way<br>
+      of <em>seeing.</em>
     </h1>
     <p class="hero-sub" data-i18n="hero-sub">
       No pinto el universo. Pinto lo que pasa cuando su escala te desarma.
@@ -1371,6 +1388,7 @@ const translations = {
     'nav-series':      'Series',
     'nav-about':       'Sobre',
     'nav-contact':     'Contacto',
+    'nav-newsletter':  'Newsletter',
     'hero-tagline-1':  'Pintura',
     'hero-tagline-2':  'como forma de',
     'hero-tagline-3':  'ver.',
@@ -1413,6 +1431,7 @@ const translations = {
     'nav-series':      'Works',
     'nav-about':       'About',
     'nav-contact':     'Contact',
+    'nav-newsletter':  'Newsletter',
     'hero-tagline-1':  'Painting',
     'hero-tagline-2':  'as a way',
     'hero-tagline-3':  'seeing.',
