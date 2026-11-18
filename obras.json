@@ -13,7 +13,8 @@
     "imagen": "images/tiempo-i.jpg",
     "formato": "portrait",
     "temp": "warm",
-    "disponible": true
+    "available": true,
+    "buy_url": "https://pay.sumup.com/p/s/XWYLG45ZT3"
   },
   {
     "orden": 2,
@@ -29,7 +30,7 @@
     "imagen": "images/tiempo-ii.jpg",
     "formato": "portrait",
     "temp": "neutral",
-    "disponible": true
+    "available": true
   },
   {
     "orden": 3,
@@ -45,7 +46,7 @@
     "imagen": "images/tiempo-iii.jpg",
     "formato": "portrait",
     "temp": "warm",
-    "disponible": true
+    "available": true
   },
   {
     "orden": 4,
@@ -61,7 +62,7 @@
     "imagen": "images/cosmic-i.jpg",
     "formato": "portrait",
     "temp": "cool",
-    "disponible": true
+    "available": true
   },
   {
     "orden": 5,
@@ -77,7 +78,7 @@
     "imagen": "images/cosmic-ii.jpg",
     "formato": "portrait",
     "temp": "deep",
-    "disponible": true
+    "available": true
   },
   {
     "orden": 6,
@@ -93,7 +94,7 @@
     "imagen": "images/cosmic-iii.jpg",
     "formato": "portrait",
     "temp": "neutral",
-    "disponible": true
+    "available": true
   },
   {
     "orden": 7,
@@ -109,7 +110,7 @@
     "imagen": "images/self-i.jpg",
     "formato": "portrait",
     "temp": "cool",
-    "disponible": true
+    "available": true
   },
   {
     "orden": 8,
@@ -125,7 +126,7 @@
     "imagen": "images/self-ii.jpg",
     "formato": "portrait",
     "temp": "deep",
-    "disponible": true
+    "available": true
   },
   {
     "orden": 9,
@@ -141,6 +142,6 @@
     "imagen": "images/self-iii.jpg",
     "formato": "portrait",
     "temp": "deep",
-    "disponible": true
+    "available": true
   }
 ]
