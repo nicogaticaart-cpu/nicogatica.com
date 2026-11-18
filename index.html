@@ -1756,7 +1756,7 @@ function closeOrderForm() {
   document.getElementById('order-overlay').classList.remove('visible');
 }
 
-async function submitOrderForm(e) {
+function submitOrderForm(e) {
   e.preventDefault();
   const form = e.target;
   const data = new FormData(form);
@@ -1769,28 +1769,29 @@ async function submitOrderForm(e) {
   const obra      = document.getElementById('order-title').textContent;
   const precio    = document.getElementById('order-price').textContent;
 
-  const submitBtn = form.querySelector('.order-submit');
-  submitBtn.textContent = 'Enviando…';
-  submitBtn.disabled = true;
+  const cuerpo =
+    'NUEVA ORDEN DE COMPRA\n\n' +
+    'Obra: ' + obra + '\n' +
+    'Precio: ' + precio + '\n\n' +
+    'DATOS DE ENVÍO\n' +
+    'Nombre: ' + nombre + '\n' +
+    'Email: ' + email + '\n' +
+    'Dirección: ' + direccion + '\n' +
+    'CP: ' + cp + '\n' +
+    'Ciudad: ' + ciudad + '\n' +
+    'País: ' + pais;
 
-  // Enviar datos por Formspree a hello@nicogatica.com
-  // IMPORTANTE: reemplaza FORMSPREE_ID con tu ID real de formspree.io
-  try {
-    await fetch('https://formspree.io/f/FORMSPREE_ID', {
-      method: 'POST',
-      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        _subject: 'Nuevo pedido: ' + obra,
-        obra, precio, nombre, email,
-        direccion, cp, ciudad, pais,
-        _replyto: email
-      })
-    });
-  } catch(_) {}
+  const mailtoLink = 'mailto:nicogatica.art@gmail.com' +
+    '?subject=' + encodeURIComponent('Nuevo pedido: ' + obra) +
+    '&body=' + encodeURIComponent(cuerpo);
 
-  // Redirigir a SumUp
-  closeOrderForm();
-  window.location.href = _orderUrl;
+  window.location.href = mailtoLink;
+
+  // Redirigir a SumUp tras un pequeño delay
+  setTimeout(function() {
+    closeOrderForm();
+    window.location.href = _orderUrl;
+  }, 500);
 }
 
 document.getElementById('order-overlay').addEventListener('click', function(e) {
