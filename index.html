@@ -1350,6 +1350,7 @@ function renderObras() {
             <span class="work-meta-item">${obra.dimensiones}</span>
             <span class="work-meta-item">${obra.año}</span>
             ${precioHtml}
+            ${obra.buy_url ? `<a class="buy-btn" href="${obra.buy_url}" target="_blank">Comprar</a>` : ''}
           </div>
         </div>
       </article>
