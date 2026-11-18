@@ -449,10 +449,12 @@
     position: relative;
   }
   .order-modal h3 {
-    font-family: var(--serif, Georgia, serif);
+    font-family: var(--sans);
     font-size: 1.1rem;
+    font-weight: 300;
     margin-bottom: 0.25rem;
     color: var(--ink);
+    letter-spacing: -0.02em;
   }
   .order-modal .order-obra {
     font-family: var(--mono);
@@ -506,6 +508,28 @@
     transition: opacity 0.2s;
   }
   .order-submit:hover { opacity: 0.8; }
+  .order-row {
+    display: flex;
+    gap: 0.75rem;
+  }
+  .order-row .order-field { flex: 1; }
+  .order-select {
+    width: 100%;
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--ink);
+    background: var(--bg);
+    border: 1px solid rgba(12,12,12,0.18);
+    border-radius: 2px;
+    padding: 0.5rem 0.6rem;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%230C0C0C' opacity='.4'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.7rem center;
+  }
+  .order-select:focus { outline: 1px solid var(--accent); }
   .order-cancel {
     font-family: var(--mono);
     font-size: 0.65rem;
@@ -1202,7 +1226,7 @@
       <li><a href="#series"  data-i18n="nav-series">Series</a></li>
       <li><a href="#about"   data-i18n="nav-about">Sobre</a></li>
       <li><a href="#contact" data-i18n="nav-contact">Contacto</a></li>
-      <li><button class="nav-newsletter-btn sender-popup-trigger" data-i18n="nav-newsletter">Newsletter</button></li>
+      <li><button class="nav-newsletter-btn" id="nav-nl-btn" data-i18n="nav-newsletter">Newsletter</button></li>
     </ul>
     <div class="lang-switcher">
       <button class="lang-btn active" data-lang="es">ES</button>
@@ -1345,23 +1369,53 @@
     <form id="order-form" onsubmit="submitOrderForm(event)">
       <div class="order-field">
         <label>Nombre completo *</label>
-        <input type="text" name="nombre" required>
+        <input type="text" name="nombre" required autocomplete="name">
       </div>
       <div class="order-field">
         <label>Email *</label>
-        <input type="email" name="email" required>
+        <input type="email" name="email" required autocomplete="email">
       </div>
       <div class="order-field">
-        <label>Dirección de envío *</label>
-        <input type="text" name="direccion" required placeholder="Calle, número, piso">
+        <label>Dirección *</label>
+        <input type="text" name="direccion" required placeholder="Calle, número, piso" autocomplete="address-line1">
       </div>
-      <div class="order-field">
-        <label>Ciudad y código postal *</label>
-        <input type="text" name="ciudad" required placeholder="Barcelona 08001">
+      <div class="order-row">
+        <div class="order-field">
+          <label>Código postal *</label>
+          <input type="text" name="cp" required placeholder="08001" autocomplete="postal-code" style="width:100%">
+        </div>
+        <div class="order-field" style="flex:2">
+          <label>Ciudad *</label>
+          <input type="text" name="ciudad" required placeholder="Barcelona" autocomplete="address-level2" style="width:100%">
+        </div>
       </div>
       <div class="order-field">
         <label>País *</label>
-        <input type="text" name="pais" required placeholder="España">
+        <select name="pais" required class="order-select" autocomplete="country-name">
+          <option value="">Selecciona país…</option>
+          <option value="España" selected>España</option>
+          <option value="Francia">Francia</option>
+          <option value="Alemania">Alemania</option>
+          <option value="Italia">Italia</option>
+          <option value="Portugal">Portugal</option>
+          <option value="Reino Unido">Reino Unido</option>
+          <option value="Países Bajos">Países Bajos</option>
+          <option value="Bélgica">Bélgica</option>
+          <option value="Suiza">Suiza</option>
+          <option value="Austria">Austria</option>
+          <option value="Suecia">Suecia</option>
+          <option value="Noruega">Noruega</option>
+          <option value="Dinamarca">Dinamarca</option>
+          <option value="Estados Unidos">Estados Unidos</option>
+          <option value="Canadá">Canadá</option>
+          <option value="México">México</option>
+          <option value="Argentina">Argentina</option>
+          <option value="Chile">Chile</option>
+          <option value="Colombia">Colombia</option>
+          <option value="Australia">Australia</option>
+          <option value="Japón">Japón</option>
+          <option value="Otro">Otro</option>
+        </select>
       </div>
       <div class="order-actions">
         <button type="submit" class="order-submit">Continuar al pago →</button>
@@ -1702,40 +1756,50 @@ function closeOrderForm() {
   document.getElementById('order-overlay').classList.remove('visible');
 }
 
-function submitOrderForm(e) {
+async function submitOrderForm(e) {
   e.preventDefault();
   const form = e.target;
   const data = new FormData(form);
   const nombre    = data.get('nombre');
   const email     = data.get('email');
   const direccion = data.get('direccion');
+  const cp        = data.get('cp');
   const ciudad    = data.get('ciudad');
   const pais      = data.get('pais');
   const obra      = document.getElementById('order-title').textContent;
   const precio    = document.getElementById('order-price').textContent;
 
-  // Enviar datos de envío por email
-  const subject = encodeURIComponent('Pedido: ' + obra);
-  const body = encodeURIComponent(
-    'OBRA: ' + obra + '\nPRECIO: ' + precio +
-    '\n\nNOMBRE: ' + nombre +
-    '\nEMAIL: ' + email +
-    '\nDIRECCIÓN: ' + direccion +
-    '\nCIUDAD: ' + ciudad +
-    '\nPAÍS: ' + pais
-  );
-  window.open('mailto:hello@nicogatica.com?subject=' + subject + '&body=' + body);
+  const submitBtn = form.querySelector('.order-submit');
+  submitBtn.textContent = 'Enviando…';
+  submitBtn.disabled = true;
+
+  // Enviar datos por Formspree a hello@nicogatica.com
+  // IMPORTANTE: reemplaza FORMSPREE_ID con tu ID real de formspree.io
+  try {
+    await fetch('https://formspree.io/f/FORMSPREE_ID', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        _subject: 'Nuevo pedido: ' + obra,
+        obra, precio, nombre, email,
+        direccion, cp, ciudad, pais,
+        _replyto: email
+      })
+    });
+  } catch(_) {}
 
   // Redirigir a SumUp
-  setTimeout(function() {
-    closeOrderForm();
-    window.open(_orderUrl, '_blank');
-  }, 500);
+  closeOrderForm();
+  window.location.href = _orderUrl;
 }
 
 document.getElementById('order-overlay').addEventListener('click', function(e) {
   if (e.target === this) closeOrderForm();
 });
+
+// ── NEWSLETTER BTN ──
+// El botón tiene id="nav-nl-btn" — en Sender panel → tu form → Trigger → Element Selector → "#nav-nl-btn"
+// Sender detecta ese ID y abre el popup automáticamente al hacer click.
 
 // ── NETLIFY IDENTITY ──
 if (window.netlifyIdentity) {
