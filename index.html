@@ -430,6 +430,45 @@
     font-weight: 600;
   }
   /* ── ORDER FORM MODAL ── */
+  /* ── Cookie banner ── */
+  .cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--ink);
+    color: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.9rem 1.5rem;
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.03em;
+    z-index: 9999;
+  }
+  .cookie-banner a {
+    color: var(--bg);
+    opacity: 0.6;
+    text-decoration: underline;
+  }
+  .cookie-accept {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: none;
+    border: 1px solid var(--bg);
+    color: var(--bg);
+    padding: 0.35em 0.9em;
+    cursor: pointer;
+    white-space: nowrap;
+    opacity: 0.85;
+    transition: opacity 0.2s;
+  }
+  .cookie-accept:hover { opacity: 1; }
+
   .order-overlay {
     display: none;
     position: fixed;
@@ -1814,5 +1853,20 @@ cargarObras();
 updatePlaceholders(currentLang);
 </script>
 
+<!-- ── COOKIE BANNER ── -->
+<div class="cookie-banner" id="cookie-banner">
+  <span>Esta web usa cookies de terceros para el formulario de newsletter. <a href="https://www.sender.net/privacy-policy/" target="_blank" rel="noopener">Más info</a></span>
+  <button class="cookie-accept" onclick="acceptCookies()">Aceptar</button>
+</div>
+
+<script>
+function acceptCookies() {
+  try { localStorage.setItem('cookies-accepted', '1'); } catch(_) {}
+  document.getElementById('cookie-banner').style.display = 'none';
+}
+(function() {
+  try { if (localStorage.getItem('cookies-accepted')) document.getElementById('cookie-banner').style.display = 'none'; } catch(_) {}
+})();
+</script>
 </body>
 </html>
