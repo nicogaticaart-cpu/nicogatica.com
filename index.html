@@ -598,6 +598,81 @@
     background: rgba(12,12,12,0.05);
   }
 
+  /* ── VIEW TOGGLE ── */
+  .view-toggle {
+    display: flex;
+    gap: 0.25rem;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .view-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 4px;
+    opacity: 0.22;
+    transition: opacity 0.2s;
+    color: var(--ink);
+  }
+
+  .view-btn svg { fill: currentColor; }
+
+  .view-btn:hover { opacity: 0.5; }
+  .view-btn.active { opacity: 0.7; }
+
+  /* ── GRID VIEW ── */
+  #works-container.view-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    padding: 0;
+    border-top: 1px solid rgba(12,12,12,0.05);
+  }
+
+  #works-container.view-grid .room-divider { display: none; }
+
+  #works-container.view-grid .work-room {
+    padding: 2rem 1.5rem 2.5rem;
+    border-bottom: 1px solid rgba(12,12,12,0.05);
+    align-items: flex-start;
+  }
+
+  #works-container.view-grid .work-image-wrap,
+  #works-container.view-grid .work-room.portrait .work-image-wrap,
+  #works-container.view-grid .work-room.square   .work-image-wrap {
+    width: 100%;
+    aspect-ratio: 4/5;
+  }
+
+  #works-container.view-grid .work-info,
+  #works-container.view-grid .work-room.portrait .work-info,
+  #works-container.view-grid .work-room.square   .work-info {
+    width: 100%;
+    margin-top: 1.2rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  #works-container.view-grid .work-meta-col {
+    text-align: left;
+  }
+
+  #works-container.view-grid .work-title {
+    font-size: clamp(0.85rem, 1.4vw, 1.1rem);
+  }
+
+  /* ── LIST VIEW (layout original) ── */
+  #works-container.view-list {
+    display: block;
+  }
+
   /* ── ABOUT ── */
   .about-section {
     border-top: 1px solid rgba(12,12,12,0.06);
@@ -946,6 +1021,20 @@
     }
     .work-meta-col { text-align: left; }
     .room-divider { width: calc(100% - 3rem); margin: 0 1.5rem; }
+    /* En móvil siempre 1 columna, independiente del toggle */
+    #works-container.view-grid {
+      grid-template-columns: 1fr;
+    }
+    #works-container.view-grid .work-room {
+      border-right: none;
+      border-bottom: 1px solid rgba(12,12,12,0.05);
+    }
+    #works-container.view-grid .work-image-wrap,
+    #works-container.view-grid .work-room.portrait .work-image-wrap,
+    #works-container.view-grid .work-room.square   .work-image-wrap {
+      width: 100%;
+      aspect-ratio: 3/4;
+    }
     .about-section { padding: 6rem 1.5rem; }
     .about-grid { grid-template-columns: 1fr; gap: 3rem; }
     .about-meta-row { gap: 2rem; flex-wrap: wrap; }
@@ -1297,8 +1386,25 @@
   <div class="section-header">
     <span class="section-label" data-i18n="section-series">Series seleccionadas</span>
     <div class="section-rule"></div>
+    <div class="view-toggle" role="group" aria-label="Vista">
+      <button class="view-btn active" id="btn-grid" onclick="setView('grid')" title="Grilla" aria-pressed="true">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0" y="0" width="5.5" height="5.5" rx="0.5"/>
+          <rect x="8.5" y="0" width="5.5" height="5.5" rx="0.5"/>
+          <rect x="0" y="8.5" width="5.5" height="5.5" rx="0.5"/>
+          <rect x="8.5" y="8.5" width="5.5" height="5.5" rx="0.5"/>
+        </svg>
+      </button>
+      <button class="view-btn" id="btn-list" onclick="setView('list')" title="Lista" aria-pressed="false">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0" y="1" width="14" height="2" rx="0.5"/>
+          <rect x="0" y="6" width="14" height="2" rx="0.5"/>
+          <rect x="0" y="11" width="14" height="2" rx="0.5"/>
+        </svg>
+      </button>
+    </div>
   </div>
-  <div id="works-container"></div>
+  <div id="works-container" class="view-grid"></div>
 </section>
 
 <!-- ABOUT -->
@@ -1574,10 +1680,45 @@ async function cargarObras() {
     const res = await fetch('obras.json');
     obrasData = await res.json();
     obrasData.sort((a, b) => a.orden - b.orden);
+    // Aplicar vista guardada antes de renderizar
+    const wc = document.getElementById('works-container');
+    wc.classList.toggle('view-grid', currentView === 'grid');
+    wc.classList.toggle('view-list', currentView === 'list');
+    const bg = document.getElementById('btn-grid');
+    const bl = document.getElementById('btn-list');
+    if (bg) { bg.classList.toggle('active', currentView === 'grid'); bg.setAttribute('aria-pressed', currentView === 'grid'); }
+    if (bl) { bl.classList.toggle('active', currentView === 'list'); bl.setAttribute('aria-pressed', currentView === 'list'); }
     renderObras();
   } catch (e) {
     console.error('Error cargando obras.json', e);
   }
+}
+
+// ── VIEW TOGGLE ──
+let currentView = 'grid';
+try {
+  const saved = localStorage.getItem('works-view');
+  if (saved === 'list' || saved === 'grid') currentView = saved;
+} catch(_) {}
+
+function setView(view) {
+  currentView = view;
+  try { localStorage.setItem('works-view', view); } catch(_) {}
+  const container = document.getElementById('works-container');
+  container.classList.toggle('view-grid', view === 'grid');
+  container.classList.toggle('view-list', view === 'list');
+  const btnGrid = document.getElementById('btn-grid');
+  const btnList = document.getElementById('btn-list');
+  if (btnGrid) {
+    btnGrid.classList.toggle('active', view === 'grid');
+    btnGrid.setAttribute('aria-pressed', view === 'grid');
+  }
+  if (btnList) {
+    btnList.classList.toggle('active', view === 'list');
+    btnList.setAttribute('aria-pressed', view === 'list');
+  }
+  // Re-renderizar para mostrar/ocultar dividers
+  renderObras();
 }
 
 function renderObras() {
@@ -1602,7 +1743,7 @@ function renderObras() {
     const buyHtml    = obra.buy_url && !obra.sold
       ? `<button class="buy-btn" onclick="openOrderForm('${obra.buy_url}', '${obra.titulo_es.replace(/'/g,"\\'")}', '${obra.precio || ''}')">${currentLang === 'en' ? 'Buy' : 'Comprar'}</button>`
       : '';
-    const divider = i < obrasData.length - 1 ? '<div class="room-divider"></div>' : '';
+    const divider = (currentView === 'list' && i < obrasData.length - 1) ? '<div class="room-divider"></div>' : '';
 
     const html = `
       <article class="work-room ${obra.formato || 'portrait'}"
