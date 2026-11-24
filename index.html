@@ -1558,7 +1558,7 @@ function renderObras() {
       : '<em>' + last + '</em>';
 
     const num = String(obra.orden).padStart(2, '0');
-    const precioHtml = obra.precio && !obra.sold ? `<span class="work-price">${obra.precio}</span>` : '';
+    const precioHtml = obra.precio ? `<span class="work-price">${obra.precio}</span>` : '';
     const soldHtml   = obra.sold ? `<span class="work-sold">${currentLang === 'en' ? 'Sold' : 'Vendida'}</span>` : '';
     const buyHtml    = obra.buy_url && !obra.sold
       ? `<button class="buy-btn" onclick="openOrderForm('${obra.buy_url}', '${obra.titulo_es.replace(/'/g,"\\'")}', '${obra.precio || ''}')">${currentLang === 'en' ? 'Buy' : 'Comprar'}</button>`
